@@ -13,6 +13,7 @@ struct Coin: Codable {
     let name: String
     let symbol: String
     let quote: Quote
+    let slug: String
     
     var displayPrice: Double {
         Double(round(quote.USD.price * 100) / 100)

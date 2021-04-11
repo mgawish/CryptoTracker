@@ -15,9 +15,12 @@ class ListingViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle"),
+                                                            style: .plain,
                                                             target: self,
                                                             action: #selector(sortList))
+        
         
         fetchCoins()
     }

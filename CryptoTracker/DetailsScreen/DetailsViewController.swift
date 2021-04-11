@@ -35,14 +35,13 @@ class DetailsViewController: UIViewController {
         changeLabel.text = "%\(coin.displayChange)"
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pip.exit"),
+                                                            style: .plain,
                                                             target: self,
-                                                            action: #selector(shareCoinDetails))
+                                                            action: #selector(openWebpage))
     }
     
-    @objc func shareCoinDetails() {
-        let activityView = UIActivityViewController(activityItems: [coin.name], applicationActivities: [])
-        
-        present(activityView, animated: true, completion: nil)
+    @objc func openWebpage() {
+        WebViewController.present(urlString: "https://coinmarketcap.com/currencies/\(coin.slug)", parent: self)
     }
 }
