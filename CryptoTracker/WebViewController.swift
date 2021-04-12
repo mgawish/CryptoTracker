@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController, WKNavigationDelegate {
+class WebViewController: UIViewController {
     var urlString: String = ""
     var webView: WKWebView!
     
@@ -30,5 +30,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
             webView.load(URLRequest(url: url))
             webView.allowsBackForwardNavigationGestures = true
         }
+    }
+}
+
+extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        title = webView.title
     }
 }
