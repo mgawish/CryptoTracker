@@ -36,3 +36,12 @@ extension Coin {
         let percent_change_24h: Double
     }
 }
+
+extension Coin {
+    static let sampleData = Coin(id: 1,
+                                 name: "Bitcoin",
+                                 symbol: "BTC",
+                                 quote: Quote(USD: PriceBreakdown(price: 63328.262294438355,
+                                                                  percent_change_24h: 5.70085299)),
+                                 slug: "bitcoin")
+}
