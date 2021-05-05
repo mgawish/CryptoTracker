@@ -13,7 +13,7 @@ enum CMCEndpoint {
 
 extension CMCEndpoint: EndpointProtocol {
     var baseLink: String {
-        Enviroment.shared.baseLink
+        Enviroment.shared.cmcBaseLink
     }
     
     var path: String {

@@ -20,6 +20,7 @@ class AssetsViewController: UIViewController {
         tableView.dataSource = self
         
         updateUI()
+        viewModel.fetchAssets()
     }
     
     func updateUI() {

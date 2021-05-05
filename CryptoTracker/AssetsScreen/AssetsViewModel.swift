@@ -16,4 +16,16 @@ class AssetsViewModel {
     var assetsTotal: Double {
         assets.reduce(0) { $0 + $1.value }
     }
+    
+    func fetchAssets() {
+        let endpoint = BinanceEndpoint.systemStatus
+        do {
+            let executer = try RequestExecuter<BinanceSystemStatus>(endpoint: endpoint)
+            try executer.execute(completion: { (model, error) in
+                print(model)
+            })
+        } catch {
+            print(error)
+        }
+    }
 }

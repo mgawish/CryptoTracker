@@ -66,5 +66,11 @@
 	<string>$(CMC_BASE_LINK)</string>
 	<key>CMC_API_KEY</key>
 	<string>$(CMC_API_KEY)</string>
+	<key>BINANCE_BASE_LINK</key>
+	<string>$(BINANCE_BASE_LINK)</string>
+	<key>BINANCE_API_KEY</key>
+	<string>$(BINANCE_API_KEY)</string>
+	<key>BINANCE_API_SECRET</key>
+	<string>$(BINANCE_API_SECRET)</string>
 </dict>
 </plist>

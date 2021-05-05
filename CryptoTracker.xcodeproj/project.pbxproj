@@ -13,6 +13,7 @@
 		754422F326261AF0000D6F2D /* AssetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422F226261AF0000D6F2D /* AssetsViewModel.swift */; };
 		754422F826261B72000D6F2D /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754422F726261B72000D6F2D /* Assets.storyboard */; };
 		7544230026261D96000D6F2D /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422FF26261D96000D6F2D /* Asset.swift */; };
+		7558F2BF2642D07000AE335E /* BinanceSystemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */; };
 		756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C147926217B5D006470DE /* ResponseStatus.swift */; };
 		756C148A26218363006470DE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C148926218363006470DE /* DetailsViewController.swift */; };
 		758231D32623708D00809870 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758231D22623708D00809870 /* WebViewController.swift */; };
@@ -34,6 +35,7 @@
 		75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */; };
 		75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DCF6264261C400F66B7C /* EndpointProtocol.swift */; };
 		75F8DD152642BD7700F66B7C /* ListingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F8DD142642BD7700F66B7C /* ListingCell.xib */; };
+		75F8DD1F2642CCBE00F66B7C /* BinanceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DD1E2642CCBE00F66B7C /* BinanceEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		754422F226261AF0000D6F2D /* AssetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewModel.swift; sourceTree = "<group>"; };
 		754422F726261B72000D6F2D /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
 		754422FF26261D96000D6F2D /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceSystemStatus.swift; sourceTree = "<group>"; };
 		756C147926217B5D006470DE /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		756C148926218363006470DE /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		758231D22623708D00809870 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCEndpoint.swift; sourceTree = "<group>"; };
 		75F8DCF6264261C400F66B7C /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		75F8DD142642BD7700F66B7C /* ListingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingCell.xib; sourceTree = "<group>"; };
+		75F8DD1E2642CCBE00F66B7C /* BinanceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 			children = (
 				756C147926217B5D006470DE /* ResponseStatus.swift */,
 				759B18A126216EFE00E4E6CC /* ListingResponse.swift */,
+				7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */,
 				759B188026216AE100E4E6CC /* Coin.swift */,
 				754422FF26261D96000D6F2D /* Asset.swift */,
 			);
@@ -223,6 +228,7 @@
 				75F8DCF6264261C400F66B7C /* EndpointProtocol.swift */,
 				75EC6FB326235CEF0008C9F8 /* NetworkError.swift */,
 				75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */,
+				75F8DD1E2642CCBE00F66B7C /* BinanceEndpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */,
 				759B184D26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld in Sources */,
 				75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */,
+				75F8DD1F2642CCBE00F66B7C /* BinanceEndpoint.swift in Sources */,
 				754422E52625D857000D6F2D /* MainViewController.swift in Sources */,
 				756C148A26218363006470DE /* DetailsViewController.swift in Sources */,
 				75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */,
@@ -379,6 +386,7 @@
 				75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */,
 				751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */,
 				758231D32623708D00809870 /* WebViewController.swift in Sources */,
+				7558F2BF2642D07000AE335E /* BinanceSystemStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
