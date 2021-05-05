@@ -13,7 +13,7 @@ class Enviroment {
     let cmcApiKey: String
     
     init() {
-        baseLink = Bundle.main.infoDictionary?["BASE_LINK"] as? String ?? ""
+        baseLink = Bundle.main.infoDictionary?["CMC_BASE_LINK"] as? String ?? ""
         cmcApiKey = Bundle.main.infoDictionary?["CMC_API_KEY"] as? String ?? ""
     }
 }

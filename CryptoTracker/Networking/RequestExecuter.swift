@@ -1,0 +1,57 @@
+//
+//  RequestExecuter.swift
+//  CryptoTracker
+//
+//  Created by Gawish on 11/04/2021.
+//
+
+import Foundation
+
+struct RequestExecuter<T:Decodable> {
+    var request: URLRequest
+    
+    init(endpoint: EndpointProtocol) throws {
+        let urlString = endpoint.baseLink + endpoint.path
+        
+        var urlComponents = URLComponents(string: urlString)
+        urlComponents?.queryItems = endpoint.params
+        guard let url = urlComponents?.url else {
+            throw NetworkError.invalidUrl
+        }
+        
+        request = URLRequest(url: url)
+        request.allHTTPHeaderFields = endpoint.headers
+    }
+    
+    func execute(completion: @escaping (T?, Error?)->()) throws {
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(nil, NetworkError.invalidResponse)
+                return
+            }
+            
+            if httpResponse.statusCode != 200 {
+                completion(nil, NetworkError.responseError)
+            }
+            
+            if let _ = error {
+                completion(nil, NetworkError.responseError)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            guard let d = data,
+                  let model = try? decoder.decode(T.self, from: d)
+            else {
+                completion(nil, NetworkError.dataError)
+                return
+            }
+            
+            completion(model, nil)
+        }
+        
+        task.resume()
+    }
+}
+
+

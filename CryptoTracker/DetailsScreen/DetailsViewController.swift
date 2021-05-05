@@ -34,14 +34,15 @@ class DetailsViewController: UIViewController {
         priceLabel.text = "$\(coin.displayPrice)"
         changeLabel.text = "%\(coin.displayChange)"
         
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pip.exit"),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"),
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(openWebpage))
+                                                            action: #selector(addToFavorites))
     }
     
-    @objc func openWebpage() {
-        WebViewController.present(urlString: "https://coinmarketcap.com/currencies/\(coin.slug)", parent: self)
+    @objc func addToFavorites() {
+        
     }
+    
+    
 }
