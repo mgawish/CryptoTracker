@@ -16,13 +16,18 @@ class MainViewController: UITabBarController {
         listingViewController.tabBarItem = UITabBarItem(title: "Coins",
                                                         image: UIImage(systemName: "bitcoinsign.circle"),
                                                         tag: 0)
+        listingViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white],
+                                                                for: .selected)
         
         let assetStoryboard =  UIStoryboard(name: "Assets", bundle: nil)
         let assetViewController = assetStoryboard.instantiateViewController(identifier: "AssetsViewController")
         assetViewController.tabBarItem = UITabBarItem(title: "Assets",
-                                                        image: UIImage(systemName: "bag"),
-                                                        tag: 1)
+                                                      image: UIImage(systemName: "bag"),
+                                                      tag: 1)
+        listingViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white],
+                                                                for: .selected)
         
+        tabBar.tintColor = .white
         
         viewControllers = [listingViewController, assetViewController]
     }

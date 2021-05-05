@@ -8,10 +8,11 @@
 import Foundation
 
 class ListingViewModel {
+    typealias Sort = ListingResponse.SortOption
     var coins = [Coin]()
-    var currentSortOption: ListingResponse.SortOption = .martketCapDesc
+    var currentSortOption: Sort = .martketCapDesc
     
-    func fetchCoins(sort: ListingResponse.SortOption, completion: @escaping (Error?)->()) {
+    func fetchCoins(sort: Sort, completion: @escaping (Error?)->()) {
         coins = []
         let endpoint = CMCEndpoint.listing(sort: sort)
         do {

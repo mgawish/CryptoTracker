@@ -21,7 +21,8 @@ class ListingViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(sortList))
         
-        
+        tableView.register(UINib(nibName: ListingCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: ListingCell.identifier)
         fetchCoins()
     }
     
@@ -85,13 +86,14 @@ extension ListingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListingCell.identifier, for: indexPath) as? ListingCell
         let coin = viewModel.coins[indexPath.row]
-        cell.textLabel?.text = "\(coin.name) - $\(coin.displayPrice)"
-        return cell
+        cell?.configure(coin: coin)
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         segueToDetails(coin: viewModel.coins[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

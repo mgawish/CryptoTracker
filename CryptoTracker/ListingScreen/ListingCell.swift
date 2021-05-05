@@ -5,4 +5,19 @@
 //  Created by Gawish on 10/04/2021.
 //
 
-import Foundation
+import UIKit
+
+class ListingCell: UITableViewCell {
+    static let identifier = "ListingCell"
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var changeLabel: UILabel!
+    
+    func configure(coin: Coin) {
+        nameLabel.text = coin.symbol
+        priceLabel.text = "\(coin.displayPrice)"
+        changeLabel.text = "\(coin.displayChange)%"
+        changeLabel.textColor = coin.displayChange > 0 ? .green : .red
+    }
+}
