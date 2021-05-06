@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4D6726218D4600D368D9 /* Enviroment.swift */; };
+		7541B4B82643EDAB006074B1 /* ServerTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */; };
 		754422E52625D857000D6F2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422E42625D857000D6F2D /* MainViewController.swift */; };
 		754422EB26261AE8000D6F2D /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422EA26261AE8000D6F2D /* AssetsViewController.swift */; };
 		754422F326261AF0000D6F2D /* AssetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422F226261AF0000D6F2D /* AssetsViewModel.swift */; };
@@ -30,6 +31,8 @@
 		759B188126216AE100E4E6CC /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B188026216AE100E4E6CC /* Coin.swift */; };
 		759B18A226216EFE00E4E6CC /* ListingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B18A126216EFE00E4E6CC /* ListingResponse.swift */; };
 		759B18A72621733600E4E6CC /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B18A62621733600E4E6CC /* ListingCell.swift */; };
+		759BC16A2642E1FA009CE67B /* SwiftCrypto in Frameworks */ = {isa = PBXBuildFile; productRef = 759BC1692642E1FA009CE67B /* SwiftCrypto */; };
+		759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BC16E2642E699009CE67B /* SnapshotResponse.swift */; };
 		75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */; };
 		75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FB326235CEF0008C9F8 /* NetworkError.swift */; };
 		75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */; };
@@ -58,6 +61,7 @@
 /* Begin PBXFileReference section */
 		751E4D6626218D3400D368D9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		751E4D6726218D4600D368D9 /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTimeResponse.swift; sourceTree = "<group>"; };
 		754422E42625D857000D6F2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		754422EA26261AE8000D6F2D /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		754422F226261AF0000D6F2D /* AssetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		759B188026216AE100E4E6CC /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		759B18A126216EFE00E4E6CC /* ListingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingResponse.swift; sourceTree = "<group>"; };
 		759B18A62621733600E4E6CC /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
+		759BC16E2642E699009CE67B /* SnapshotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotResponse.swift; sourceTree = "<group>"; };
 		75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecuter.swift; sourceTree = "<group>"; };
 		75EC6FB326235CEF0008C9F8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCEndpoint.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				759BC16A2642E1FA009CE67B /* SwiftCrypto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +212,8 @@
 				7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */,
 				759B188026216AE100E4E6CC /* Coin.swift */,
 				754422FF26261D96000D6F2D /* Asset.swift */,
+				759BC16E2642E699009CE67B /* SnapshotResponse.swift */,
+				7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +257,9 @@
 			dependencies = (
 			);
 			name = CryptoTracker;
+			packageProductDependencies = (
+				759BC1692642E1FA009CE67B /* SwiftCrypto */,
+			);
 			productName = CryptoTracker;
 			productReference = 759B183F26216A8D00E4E6CC /* CryptoTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -320,6 +331,9 @@
 				Base,
 			);
 			mainGroup = 759B183626216A8D00E4E6CC;
+			packageReferences = (
+				759BC1682642E1FA009CE67B /* XCRemoteSwiftPackageReference "SwiftCrypto" */,
+			);
 			productRefGroup = 759B184026216A8D00E4E6CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,10 +379,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7541B4B82643EDAB006074B1 /* ServerTimeResponse.swift in Sources */,
 				7544230026261D96000D6F2D /* Asset.swift in Sources */,
 				756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */,
 				759B188126216AE100E4E6CC /* Coin.swift in Sources */,
 				754422F326261AF0000D6F2D /* AssetsViewModel.swift in Sources */,
+				759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */,
 				759B187926216AA100E4E6CC /* ListingViewModel.swift in Sources */,
 				759B18A72621733600E4E6CC /* ListingCell.swift in Sources */,
 				759B18A226216EFE00E4E6CC /* ListingResponse.swift in Sources */,
@@ -727,6 +743,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		759BC1682642E1FA009CE67B /* XCRemoteSwiftPackageReference "SwiftCrypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jernejstrasner/SwiftCrypto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		759BC1692642E1FA009CE67B /* SwiftCrypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 759BC1682642E1FA009CE67B /* XCRemoteSwiftPackageReference "SwiftCrypto" */;
+			productName = SwiftCrypto;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		759B184B26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld */ = {

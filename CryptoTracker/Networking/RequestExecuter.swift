@@ -10,7 +10,7 @@ import Foundation
 struct RequestExecuter<T:Decodable> {
     var request: URLRequest
     
-    init(endpoint: EndpointProtocol) throws {
+    init(_ endpoint: EndpointProtocol) throws {
         let urlString = endpoint.baseLink + endpoint.path
         
         var urlComponents = URLComponents(string: urlString)
@@ -19,11 +19,13 @@ struct RequestExecuter<T:Decodable> {
             throw NetworkError.invalidUrl
         }
         
+        print(url.absoluteString)
         request = URLRequest(url: url)
+        request.httpMethod = endpoint.httpMethod
         request.allHTTPHeaderFields = endpoint.headers
     }
     
-    func execute(completion: @escaping (T?, Error?)->()) throws {
+    func execute(completion: @escaping (T?, Error?)->()) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(nil, NetworkError.invalidResponse)

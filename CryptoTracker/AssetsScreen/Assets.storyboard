@@ -25,8 +25,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25v-Kb-weI">
+                                        <rect key="frame" x="12" y="41.5" width="390" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ceE-Hv-Yrv">
-                                        <rect key="frame" x="0.0" y="41.5" width="414" height="681.5"/>
+                                        <rect key="frame" x="0.0" y="70" width="414" height="653"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCell" id="1jk-dt-wyj">
@@ -58,7 +64,9 @@
                                     <constraint firstAttribute="trailing" secondItem="ceE-Hv-Yrv" secondAttribute="trailing" id="7dl-ef-buD"/>
                                     <constraint firstItem="YsA-0C-Mjd" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="16" id="9Nj-GL-GPT"/>
                                     <constraint firstItem="ceE-Hv-Yrv" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" id="Qlc-Me-ryd"/>
+                                    <constraint firstAttribute="trailing" secondItem="25v-Kb-weI" secondAttribute="trailing" constant="12" id="SfN-zD-pK9"/>
                                     <constraint firstAttribute="trailing" secondItem="YsA-0C-Mjd" secondAttribute="trailing" constant="16" id="YgK-am-fDM"/>
+                                    <constraint firstItem="25v-Kb-weI" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="12" id="geN-h9-Vcq"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -73,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="YsA-0C-Mjd" id="b4D-Dv-7YA"/>
+                        <outlet property="dateLabel" destination="25v-Kb-weI" id="G0V-fv-NZX"/>
                         <outlet property="tableView" destination="ceE-Hv-Yrv" id="BLt-Ip-gTC"/>
                         <outlet property="totalLabel" destination="q1Z-va-8ai" id="kHE-7o-CGa"/>
                     </connections>

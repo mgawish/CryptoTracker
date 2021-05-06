@@ -9,7 +9,8 @@ import Foundation
 
 enum BinanceEndpoint {
     case systemStatus
-    case snapshot(timestamp: String, signature: String)
+    case serverTime
+    case snapshot(timestamp: String, signature: String?)
 }
 
 extension BinanceEndpoint: EndpointProtocol {
@@ -21,9 +22,15 @@ extension BinanceEndpoint: EndpointProtocol {
         switch self {
         case .systemStatus:
             return "/wapi/v3/systemStatus.html"
+        case .serverTime:
+            return "/api/v3/time"
         case .snapshot:
-            return "/wapi/v3/accountStatus.html"
+            return "/sapi/v1/accountSnapshot"
         }
+    }
+    
+    var httpMethod: String {
+        "GET"
     }
     
     var params: [URLQueryItem] {
@@ -31,15 +38,23 @@ extension BinanceEndpoint: EndpointProtocol {
         case .systemStatus:
             return []
         case .snapshot(let timestamp, let signature):
-            return [
+            var query = [
                 URLQueryItem(name: "timestamp", value: timestamp),
-                URLQueryItem(name: "signature", value: signature)
+                URLQueryItem(name: "type", value: "SPOT")
             ]
+            if let signature = signature {
+                query.append(URLQueryItem(name: "signature", value: signature))
+            }
+           return query
+        default:
+            return []
         }
+        
     }
     
     var headers: [String : String] {
         [
+            "Accept": "*/*",
             "Accept-Encoding": "gzip, deflate, br",
             "Content-Type": "application/json",
             "Connection": "keep-alive",

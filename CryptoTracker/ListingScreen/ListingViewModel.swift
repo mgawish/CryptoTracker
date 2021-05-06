@@ -16,8 +16,8 @@ class ListingViewModel {
         coins = []
         let endpoint = CMCEndpoint.listing(sort: sort)
         do {
-            let requestExecuter = try RequestExecuter<ListingResponse>(endpoint: endpoint)
-            try requestExecuter.execute { [weak self] (model, error) in
+            let requestExecuter = try RequestExecuter<ListingResponse>(endpoint)
+            requestExecuter.execute { [weak self] (model, error) in
                 self?.coins = model?.data ?? []
                 completion(nil)
             }

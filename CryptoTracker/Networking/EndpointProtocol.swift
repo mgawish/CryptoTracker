@@ -10,6 +10,7 @@ import Foundation
 protocol EndpointProtocol {
     var baseLink: String { get }
     var path: String { get }
+    var httpMethod: String { get }
     var params: [URLQueryItem] { get }
     var headers: [String: String] { get }
 }

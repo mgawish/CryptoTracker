@@ -20,6 +20,10 @@ extension CMCEndpoint: EndpointProtocol {
         "/v1/cryptocurrency/listings/latest"
     }
     
+    var httpMethod: String {
+        "GET"
+    }
+    
     var params: [URLQueryItem] {
         switch self {
         case .listing(let sort):

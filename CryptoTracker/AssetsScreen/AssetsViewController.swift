@@ -13,6 +13,7 @@ class AssetsViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +21,19 @@ class AssetsViewController: UIViewController {
         tableView.dataSource = self
         
         updateUI()
+        viewModel.updateUI = updateUI
         viewModel.fetchAssets()
     }
     
     func updateUI() {
-        totalLabel.text = "$\(viewModel.assetsTotal)"
+        if let total = viewModel.totalInBtc {
+            totalLabel.text = "\(total) BTC"
+            dateLabel.text = "\(viewModel.snapTime)"
+        } else {
+            totalLabel.text = "- BTC"
+            dateLabel.text = "-"
+        }
+        tableView.reloadData()
     }
     
     @IBAction func addAssetTapped(_ sender: Any) {
@@ -34,13 +43,17 @@ class AssetsViewController: UIViewController {
 
 extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.assets.count
+        viewModel.assets?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssetCell", for: indexPath)
-        let asset = viewModel.assets[indexPath.row]
-        cell.textLabel?.text = "\(asset.quantity) (\(asset.coin.symbol) - \(asset.value)"
+        if let balance = viewModel.assets?[indexPath.row] {
+            cell.textLabel?.text =  "\(balance.asset) \(balance.free)"
+        } else {
+            cell.textLabel?.text =  "-"
+        }
+        
         return cell
     }
     
