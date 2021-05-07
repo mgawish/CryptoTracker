@@ -35,10 +35,6 @@ class AssetsViewController: UIViewController {
         }
         tableView.reloadData()
     }
-    
-    @IBAction func addAssetTapped(_ sender: Any) {
-        
-    }
 }
 
 extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,6 +52,4 @@ extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

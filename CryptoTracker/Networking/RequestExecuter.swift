@@ -41,11 +41,15 @@ struct RequestExecuter<T:Decodable> {
                 return
             }
             
-            let decoder = JSONDecoder()
-            guard let d = data,
-                  let model = try? decoder.decode(T.self, from: d)
-            else {
+            guard let data = data else {
                 completion(nil, NetworkError.dataError)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            guard let model = try? decoder.decode(T.self, from: data) else {
+                print("🚨 \(String(describing: String(data: data, encoding: .utf8)))")
+                completion(nil, NetworkError.responseError)
                 return
             }
             

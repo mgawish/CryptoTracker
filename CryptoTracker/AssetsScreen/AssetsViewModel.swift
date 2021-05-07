@@ -11,18 +11,18 @@ import SwiftCrypto
 class AssetsViewModel {
     var updateUI: (()->())?
     
-    var response: SnapshotResponse?
+    var response: AccountResponse?
     
-    var assets: [SnapshotResponse.Balance]? {
-        response?.snapshotVos.last?.data.balances
+    var assets: [AccountResponse.Balance]? {
+        return response?.balances.filter({ $0.displayAmount != 0 })
     }
     
     var totalInBtc: String? {
-        response?.snapshotVos.last?.data.totalAssetOfBtc
+        "-"//response?.snapshotVos.last?.data.totalAssetOfBtc
     }
     
     var snapTime: String {
-        let updateTime = response?.snapshotVos.last?.updateTime ?? 0
+        let updateTime = response?.updateTime ?? 0
         return "\(Date(timeIntervalSince1970: updateTime/1000))"
     }
     
@@ -34,7 +34,7 @@ class AssetsViewModel {
         let endpoint = BinanceEndpoint.serverTime
         do {
             let executer = try RequestExecuter<ServerTimeResponse>(endpoint)
-            try executer.execute(completion: { [weak self] (model, _) in
+            executer.execute(completion: { [weak self] (model, _) in
                 if let time = model?.serverTime {
                     self?.fetchSnapshot(timestamp: time)
                 }
@@ -45,19 +45,15 @@ class AssetsViewModel {
     }
     
     private func fetchSnapshot(timestamp: Int) {
-        let signature = generateSignture(endpoint: BinanceEndpoint.snapshot(timestamp: "\(timestamp)",
-                                                                            signature: nil))
-
-        let endpoint = BinanceEndpoint.snapshot(timestamp: "\(timestamp)", signature: signature)
+        let endpoint = BinanceEndpoint.account(timestamp: "\(timestamp)")
         
         do {
-            let executer = try RequestExecuter<SnapshotResponse>(endpoint)
+            let executer = try RequestExecuter<AccountResponse>(endpoint)
             executer.execute(completion: { [weak self] (model, error) in
                 if let error = error {
                     print(error)
                 } else {
                     self?.response = model
-                    self?.printAllDates()
                     DispatchQueue.main.async {
                         self?.updateUI?()
                     }
@@ -67,16 +63,5 @@ class AssetsViewModel {
         } catch {
             print(error)
         }
-    }
-    
-    func generateSignture(endpoint: EndpointProtocol) -> String {
-        let urlString = endpoint.baseLink + endpoint.path
-        var urlComponents = URLComponents(string: urlString)
-        urlComponents?.queryItems = endpoint.params
-        return urlComponents?.url?.query?.digest(.sha256, key: Enviroment.shared.binanceApiSecret) ?? ""
-    }
-    
-    func printAllDates() {
-        response?.snapshotVos.forEach({ print(Date(timeIntervalSince1970: $0.updateTime/1000)) })
     }
 }

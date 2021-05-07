@@ -33,6 +33,7 @@
 		759B18A72621733600E4E6CC /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B18A62621733600E4E6CC /* ListingCell.swift */; };
 		759BC16A2642E1FA009CE67B /* SwiftCrypto in Frameworks */ = {isa = PBXBuildFile; productRef = 759BC1692642E1FA009CE67B /* SwiftCrypto */; };
 		759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BC16E2642E699009CE67B /* SnapshotResponse.swift */; };
+		75DBC4D0264535BF0086D8FC /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4CF264535BF0086D8FC /* AccountResponse.swift */; };
 		75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */; };
 		75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FB326235CEF0008C9F8 /* NetworkError.swift */; };
 		75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */; };
@@ -91,6 +92,7 @@
 		759B18A126216EFE00E4E6CC /* ListingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingResponse.swift; sourceTree = "<group>"; };
 		759B18A62621733600E4E6CC /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		759BC16E2642E699009CE67B /* SnapshotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotResponse.swift; sourceTree = "<group>"; };
+		75DBC4CF264535BF0086D8FC /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
 		75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecuter.swift; sourceTree = "<group>"; };
 		75EC6FB326235CEF0008C9F8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCEndpoint.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				754422FF26261D96000D6F2D /* Asset.swift */,
 				759BC16E2642E699009CE67B /* SnapshotResponse.swift */,
 				7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */,
+				75DBC4CF264535BF0086D8FC /* AccountResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				759B184726216A8D00E4E6CC /* ListingViewController.swift in Sources */,
 				759B184326216A8D00E4E6CC /* AppDelegate.swift in Sources */,
 				754422EB26261AE8000D6F2D /* AssetsViewController.swift in Sources */,
+				75DBC4D0264535BF0086D8FC /* AccountResponse.swift in Sources */,
 				759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */,
 				759B184D26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld in Sources */,
 				75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */,

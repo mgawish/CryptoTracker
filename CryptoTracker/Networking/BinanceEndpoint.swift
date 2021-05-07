@@ -10,7 +10,15 @@ import Foundation
 enum BinanceEndpoint {
     case systemStatus
     case serverTime
-    case snapshot(timestamp: String, signature: String?)
+    case account(timestamp: String)
+    case snapshot(timestamp: String)
+    
+    func generateSignture(_ queryItems: [URLQueryItem]) -> String {
+        let urlString = self.baseLink + self.path
+        var urlComponents = URLComponents(string: urlString)
+        urlComponents?.queryItems = queryItems
+        return urlComponents?.url?.query?.digest(.sha256, key: Enviroment.shared.binanceApiSecret) ?? ""
+    }
 }
 
 extension BinanceEndpoint: EndpointProtocol {
@@ -26,6 +34,8 @@ extension BinanceEndpoint: EndpointProtocol {
             return "/api/v3/time"
         case .snapshot:
             return "/sapi/v1/accountSnapshot"
+        case .account:
+            return "/api/v3/account"
         }
     }
     
@@ -37,15 +47,20 @@ extension BinanceEndpoint: EndpointProtocol {
         switch self {
         case .systemStatus:
             return []
-        case .snapshot(let timestamp, let signature):
-            var query = [
-                URLQueryItem(name: "timestamp", value: timestamp),
-                URLQueryItem(name: "type", value: "SPOT")
+        case .snapshot(let timestamp):
+            var queryItems = [
+                URLQueryItem(name: "timestamp", value: "\(timestamp)"),
+                URLQueryItem(name: "type", value: "SPOT"),
+                URLQueryItem(name: "limit", value: "30")
             ]
-            if let signature = signature {
-                query.append(URLQueryItem(name: "signature", value: signature))
-            }
-           return query
+            queryItems.append(URLQueryItem(name: "signature", value: generateSignture(queryItems)))
+           return queryItems
+        case .account(let timestamp):
+            var queryItems = [
+                URLQueryItem(name: "timestamp", value: "\(timestamp)")
+            ]
+            queryItems.append(URLQueryItem(name: "signature", value: generateSignture(queryItems)))
+            return queryItems
         default:
             return []
         }
@@ -61,6 +76,4 @@ extension BinanceEndpoint: EndpointProtocol {
             "X-MBX-APIKEY": Enviroment.shared.binanceApiKey
         ]
     }
-    
-    
 }
