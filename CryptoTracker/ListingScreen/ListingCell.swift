@@ -14,7 +14,7 @@ class ListingCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     
-    func configure(coin: Coin) {
+    func configure(coin: CMCCoin) {
         nameLabel.text = coin.symbol
         priceLabel.text = "\(coin.displayPrice)"
         changeLabel.text = "\(coin.displayChange)%"

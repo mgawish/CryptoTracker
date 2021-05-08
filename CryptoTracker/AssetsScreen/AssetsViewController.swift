@@ -12,7 +12,6 @@ class AssetsViewController: UIViewController {
     
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,7 +26,7 @@ class AssetsViewController: UIViewController {
     
     func updateUI() {
         if let total = viewModel.totalInBtc {
-            totalLabel.text = "\(total) BTC"
+            totalLabel.text = "$ \(viewModel.usdValue)"
             dateLabel.text = "\(viewModel.snapTime)"
         } else {
             totalLabel.text = "- BTC"
@@ -39,17 +38,13 @@ class AssetsViewController: UIViewController {
 
 extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.assets?.count ?? 0
+        viewModel.assets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssetCell", for: indexPath)
-        if let balance = viewModel.assets?[indexPath.row] {
-            cell.textLabel?.text =  "\(balance.asset) \(balance.free)"
-        } else {
-            cell.textLabel?.text =  "-"
-        }
-        
+        let asset = viewModel.assets[indexPath.row] 
+        cell.textLabel?.text =  "\(asset.amount) \(asset.value)"
         return cell
     }
 }

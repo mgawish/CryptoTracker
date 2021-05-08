@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Coin: Codable {
+struct CMCCoin: Codable {
     let id: Int
     let name: String
     let symbol: String
@@ -24,21 +24,21 @@ struct Coin: Codable {
     }
 }
 
-extension Coin {
+extension CMCCoin {
     struct Quote: Codable {
         let USD: PriceBreakdown
     }
 }
 
-extension Coin {
+extension CMCCoin {
     struct PriceBreakdown: Codable {
         let price: Double
         let percent_change_24h: Double
     }
 }
 
-extension Coin {
-    static let sampleData = Coin(id: 1,
+extension CMCCoin {
+    static let sampleData = CMCCoin(id: 1,
                                  name: "Bitcoin",
                                  symbol: "BTC",
                                  quote: Quote(USD: PriceBreakdown(price: 63328.262294438355,

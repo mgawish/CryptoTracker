@@ -11,10 +11,14 @@ import SwiftCrypto
 class AssetsViewModel {
     var updateUI: (()->())?
     
-    var response: AccountResponse?
+    var response: BinanceAccount?
     
-    var assets: [AccountResponse.Balance]? {
-        return response?.balances.filter({ $0.displayAmount != 0 })
+    var usdValue: Double {
+        SharedData.shared.assets.map({ $0.price }).reduce(0, +)
+    }
+    
+    var assets: [Asset] {
+        SharedData.shared.assets.filter({ $0.amount != 0 })
     }
     
     var totalInBtc: String? {
@@ -48,12 +52,13 @@ class AssetsViewModel {
         let endpoint = BinanceEndpoint.account(timestamp: "\(timestamp)")
         
         do {
-            let executer = try RequestExecuter<AccountResponse>(endpoint)
+            let executer = try RequestExecuter<BinanceAccount>(endpoint)
             executer.execute(completion: { [weak self] (model, error) in
                 if let error = error {
                     print(error)
                 } else {
                     self?.response = model
+                    SharedData.shared.udpate(self?.response?.balances ?? [])
                     DispatchQueue.main.async {
                         self?.updateUI?()
                     }

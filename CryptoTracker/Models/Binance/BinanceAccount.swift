@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AccountResponse: Codable {
+struct BinanceAccount: Codable {
     let updateTime: Double
     let balances: [Balance]
 }
 
-extension AccountResponse {
+extension BinanceAccount {
     struct Balance: Codable {
         let asset: String
         let free: String

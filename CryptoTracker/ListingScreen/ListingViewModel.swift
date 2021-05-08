@@ -9,7 +9,7 @@ import Foundation
 
 class ListingViewModel {
     typealias Sort = ListingResponse.SortOption
-    var coins = [Coin]()
+    var coins = [CMCCoin]()
     var currentSortOption: Sort = .martketCapDesc
     
     func fetchCoins(sort: Sort, completion: @escaping (Error?)->()) {
@@ -18,7 +18,9 @@ class ListingViewModel {
         do {
             let requestExecuter = try RequestExecuter<ListingResponse>(endpoint)
             requestExecuter.execute { [weak self] (model, error) in
-                self?.coins = model?.data ?? []
+                let data = model?.data ?? []
+                self?.coins = data
+                SharedData.shared.udpate(data)
                 completion(nil)
             }
         } catch {

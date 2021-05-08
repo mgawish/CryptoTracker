@@ -75,7 +75,7 @@ class ListingViewController: UIViewController {
         
     }
     
-    func segueToDetails(coin: Coin) {
+    func segueToDetails(coin: CMCCoin) {
         DetailsViewController.present(coin: coin, parent: self)
     }
 }

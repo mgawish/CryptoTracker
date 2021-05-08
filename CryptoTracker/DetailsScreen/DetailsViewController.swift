@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class DetailsViewController: UIViewController {
-    var coin: Coin!
+    var coin: CMCCoin!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     
-    class func present(coin: Coin, parent: UIViewController) {
+    class func present(coin: CMCCoin, parent: UIViewController) {
         if let vc = parent.storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController {
             parent.navigationController?.pushViewController(vc, animated: true)
             vc.coin = coin

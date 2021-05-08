@@ -8,7 +8,7 @@
 import Foundation
 
 struct ListingResponse: Codable {
-    let data: [Coin]?
+    let data: [CMCCoin]?
     let status: ResponseStatus
 }
 
