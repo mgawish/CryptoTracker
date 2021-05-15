@@ -25,13 +25,7 @@ class AssetsViewController: UIViewController {
     }
     
     func updateUI() {
-        if let total = viewModel.totalInBtc {
-            totalLabel.text = "$ \(viewModel.usdValue)"
-            dateLabel.text = "\(viewModel.snapTime)"
-        } else {
-            totalLabel.text = "- BTC"
-            dateLabel.text = "-"
-        }
+        totalLabel.text = "$ \(viewModel.usdValue)"
         tableView.reloadData()
     }
 }

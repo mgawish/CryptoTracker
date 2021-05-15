@@ -14,15 +14,11 @@ class AssetsViewModel {
     var response: BinanceAccount?
     
     var usdValue: Double {
-        SharedData.shared.assets.map({ $0.price }).reduce(0, +)
+        SharedData.shared.assets.filter({ $0.amount != 0 }).map({ $0.price }).reduce(0, +)
     }
     
     var assets: [Asset] {
         SharedData.shared.assets.filter({ $0.amount != 0 })
-    }
-    
-    var totalInBtc: String? {
-        "-"//response?.snapshotVos.last?.data.totalAssetOfBtc
     }
     
     var snapTime: String {
