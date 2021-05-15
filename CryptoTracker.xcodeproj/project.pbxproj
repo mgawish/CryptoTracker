@@ -20,6 +20,10 @@
 		756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C147926217B5D006470DE /* ResponseStatus.swift */; };
 		756C148A26218363006470DE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C148926218363006470DE /* DetailsViewController.swift */; };
 		758231D32623708D00809870 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758231D22623708D00809870 /* WebViewController.swift */; };
+		7589A334264FDE420029598E /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7589A333264FDE420029598E /* AssetCell.xib */; };
+		7589A339264FDE490029598E /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7589A338264FDE490029598E /* AssetCell.swift */; };
+		7589A345264FE0C40029598E /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7589A344264FE0C40029598E /* UITableViewCell+Extensions.swift */; };
+		7589A357264FED280029598E /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7589A356264FED280029598E /* Double+Extension.swift */; };
 		759B184326216A8D00E4E6CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B184226216A8D00E4E6CC /* AppDelegate.swift */; };
 		759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B184426216A8D00E4E6CC /* SceneDelegate.swift */; };
 		759B184726216A8D00E4E6CC /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B184626216A8D00E4E6CC /* ListingViewController.swift */; };
@@ -35,7 +39,6 @@
 		759BC16A2642E1FA009CE67B /* SwiftCrypto in Frameworks */ = {isa = PBXBuildFile; productRef = 759BC1692642E1FA009CE67B /* SwiftCrypto */; };
 		759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BC16E2642E699009CE67B /* SnapshotResponse.swift */; };
 		75DBC4D0264535BF0086D8FC /* BinanceAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4CF264535BF0086D8FC /* BinanceAccount.swift */; };
-		75DBC4E126453D540086D8FC /* Asset2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4E026453D540086D8FC /* Asset2.swift */; };
 		75DBC4EF26453E520086D8FC /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */; };
 		75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */; };
 		75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FB326235CEF0008C9F8 /* NetworkError.swift */; };
@@ -77,6 +80,10 @@
 		756C147926217B5D006470DE /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		756C148926218363006470DE /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		758231D22623708D00809870 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		7589A333264FDE420029598E /* AssetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCell.xib; sourceTree = "<group>"; };
+		7589A338264FDE490029598E /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
+		7589A344264FE0C40029598E /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		7589A356264FED280029598E /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		759B183F26216A8D00E4E6CC /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759B184226216A8D00E4E6CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759B184426216A8D00E4E6CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +104,6 @@
 		759B18A62621733600E4E6CC /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		759BC16E2642E699009CE67B /* SnapshotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotResponse.swift; sourceTree = "<group>"; };
 		75DBC4CF264535BF0086D8FC /* BinanceAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceAccount.swift; sourceTree = "<group>"; };
-		75DBC4E026453D540086D8FC /* Asset2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset2.swift; sourceTree = "<group>"; };
 		75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinator.swift; sourceTree = "<group>"; };
 		75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecuter.swift; sourceTree = "<group>"; };
 		75EC6FB326235CEF0008C9F8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		754422E926261AD9000D6F2D /* AssetsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7589A33D264FDE4D0029598E /* AssetCell */,
 				754422F226261AF0000D6F2D /* AssetsViewModel.swift */,
 				754422EA26261AE8000D6F2D /* AssetsViewController.swift */,
 				754422F726261B72000D6F2D /* Assets.storyboard */,
@@ -149,6 +156,24 @@
 				756C148926218363006470DE /* DetailsViewController.swift */,
 			);
 			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		7589A33D264FDE4D0029598E /* AssetCell */ = {
+			isa = PBXGroup;
+			children = (
+				7589A333264FDE420029598E /* AssetCell.xib */,
+				7589A338264FDE490029598E /* AssetCell.swift */,
+			);
+			path = AssetCell;
+			sourceTree = "<group>";
+		};
+		7589A349264FE0C70029598E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7589A344264FE0C40029598E /* UITableViewCell+Extensions.swift */,
+				7589A356264FED280029598E /* Double+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		759B183626216A8D00E4E6CC = {
@@ -184,6 +209,7 @@
 				759B18AC2621740100E4E6CC /* ListingScreen */,
 				756C148E26218375006470DE /* DetailsScreen */,
 				754422E926261AD9000D6F2D /* AssetsScreen */,
+				7589A349264FE0C70029598E /* Extensions */,
 				758231D22623708D00809870 /* WebViewController.swift */,
 				759B184826216A8D00E4E6CC /* Main.storyboard */,
 				759B184E26216A9000E4E6CC /* Assets.xcassets */,
@@ -260,7 +286,6 @@
 				7556C197264FCE2000E524B0 /* Asset+CoreDataProperties.swift */,
 				7556C17D264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld */,
 				75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */,
-				75DBC4E026453D540086D8FC /* Asset2.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -388,6 +413,7 @@
 			files = (
 				759B185226216A9000E4E6CC /* LaunchScreen.storyboard in Resources */,
 				759B184F26216A9000E4E6CC /* Assets.xcassets in Resources */,
+				7589A334264FDE420029598E /* AssetCell.xib in Resources */,
 				759B184A26216A8D00E4E6CC /* Main.storyboard in Resources */,
 				754422F826261B72000D6F2D /* Assets.storyboard in Resources */,
 				75F8DD152642BD7700F66B7C /* ListingCell.xib in Resources */,
@@ -423,18 +449,20 @@
 				759B187926216AA100E4E6CC /* ListingViewModel.swift in Sources */,
 				759B18A72621733600E4E6CC /* ListingCell.swift in Sources */,
 				759B18A226216EFE00E4E6CC /* ListingResponse.swift in Sources */,
+				7589A357264FED280029598E /* Double+Extension.swift in Sources */,
 				759B184726216A8D00E4E6CC /* ListingViewController.swift in Sources */,
 				759B184326216A8D00E4E6CC /* AppDelegate.swift in Sources */,
 				754422EB26261AE8000D6F2D /* AssetsViewController.swift in Sources */,
 				75DBC4D0264535BF0086D8FC /* BinanceAccount.swift in Sources */,
 				75DBC4EF26453E520086D8FC /* SyncCoordinator.swift in Sources */,
 				759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */,
+				7589A339264FDE490029598E /* AssetCell.swift in Sources */,
+				7589A345264FE0C40029598E /* UITableViewCell+Extensions.swift in Sources */,
 				75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */,
 				75F8DD1F2642CCBE00F66B7C /* BinanceEndpoint.swift in Sources */,
 				7556C199264FCE2000E524B0 /* Asset+CoreDataProperties.swift in Sources */,
 				754422E52625D857000D6F2D /* MainViewController.swift in Sources */,
 				7556C198264FCE2000E524B0 /* Asset+CoreDataClass.swift in Sources */,
-				75DBC4E126453D540086D8FC /* Asset2.swift in Sources */,
 				756C148A26218363006470DE /* DetailsViewController.swift in Sources */,
 				75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */,
 				75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */,

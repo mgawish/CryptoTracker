@@ -20,7 +20,10 @@ extension Asset {
     @NSManaged public var name: String?
     @NSManaged public var price: Double
     @NSManaged public var source: String?
-
+    
+    var usdValue: Double {
+        price * amount
+    }
 }
 
 extension Asset : Identifiable {

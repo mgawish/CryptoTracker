@@ -14,7 +14,7 @@ class AssetsViewModel {
     
     var assets = [Asset]()
     var usdValue: Double {
-        assets.map({ $0.price * $0.amount }).reduce(0, +)
+        assets.map({ $0.price * $0.amount }).reduce(0, +).roundedUpTwoDecimals()
     }
     
     init() {

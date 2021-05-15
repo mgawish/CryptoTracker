@@ -8,18 +8,18 @@
 import CoreData
 import UIKit
 
-struct SyncCoordinator {
+class SyncCoordinator {
     static var shared = SyncCoordinator()
     var coins = [CMCCoin]()
     
     func getAssets() -> [Asset] {
         let request = Asset.createFetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "price", ascending: false)]
         let assets = try? persistentContainer.viewContext.fetch(request)
         return assets ?? []
     }
     
-    mutating func udpate(_ allBalance: [BinanceAccount.Balance]) {
+    func udpate(_ allBalance: [BinanceAccount.Balance]) {
         let balance = allBalance.filter({ $0.displayAmount != 0 })
         let context = persistentContainer.viewContext
         
@@ -37,7 +37,9 @@ struct SyncCoordinator {
                 asset.price = coin?.displayPrice ?? 0
                 asset.source = Source.binance.rawValue
             }
-            saveContext()
+            DispatchQueue.main.async {
+                self.saveContext()
+            }
 
         }
     }
@@ -56,7 +58,7 @@ struct SyncCoordinator {
 
     // MARK: - Core Data Saving support
 
-    mutating func saveContext () {
+    func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

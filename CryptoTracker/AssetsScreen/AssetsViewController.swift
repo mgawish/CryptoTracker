@@ -18,7 +18,8 @@ class AssetsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.register(UINib(nibName: AssetCell.Identifier, bundle: nil),
+                           forCellReuseIdentifier: AssetCell.Identifier)
         updateUI()
         viewModel.updateUI = updateUI
         viewModel.fetchAssets()
@@ -36,9 +37,9 @@ extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AssetCell", for: indexPath)
-        let asset = viewModel.assets[indexPath.row] 
-        cell.textLabel?.text =  "\(asset.name) - \(asset.amount) \(asset.price)"
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AssetCell.Identifier, for: indexPath) as? AssetCell
+        let asset = viewModel.assets[indexPath.row]
+        cell?.configure(asset)
+        return cell ?? UITableViewCell()
     }
 }
