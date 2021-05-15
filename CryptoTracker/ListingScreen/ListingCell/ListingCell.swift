@@ -18,6 +18,6 @@ class ListingCell: UITableViewCell {
         nameLabel.text = coin.symbol
         priceLabel.text = "\(coin.displayPrice)"
         changeLabel.text = "\(coin.displayChange)%"
-        changeLabel.textColor = coin.displayChange > 0 ? .green : .red
+        //changeLabel.textColor = coin.displayChange > 0 ? .green : .red
     }
 }

@@ -139,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7516C017265051D7007C4009 /* ListingCell */ = {
+			isa = PBXGroup;
+			children = (
+				759B18A62621733600E4E6CC /* ListingCell.swift */,
+				75F8DD142642BD7700F66B7C /* ListingCell.xib */,
+			);
+			path = ListingCell;
+			sourceTree = "<group>";
+		};
 		754422E926261AD9000D6F2D /* AssetsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +170,8 @@
 		7589A33D264FDE4D0029598E /* AssetCell */ = {
 			isa = PBXGroup;
 			children = (
-				7589A333264FDE420029598E /* AssetCell.xib */,
 				7589A338264FDE490029598E /* AssetCell.swift */,
+				7589A333264FDE420029598E /* AssetCell.xib */,
 			);
 			path = AssetCell;
 			sourceTree = "<group>";
@@ -250,8 +259,7 @@
 		759B18AC2621740100E4E6CC /* ListingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				759B18A62621733600E4E6CC /* ListingCell.swift */,
-				75F8DD142642BD7700F66B7C /* ListingCell.xib */,
+				7516C017265051D7007C4009 /* ListingCell */,
 				759B187826216AA100E4E6CC /* ListingViewModel.swift */,
 				759B184626216A8D00E4E6CC /* ListingViewController.swift */,
 			);
