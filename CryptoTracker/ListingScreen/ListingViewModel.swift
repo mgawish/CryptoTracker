@@ -20,7 +20,7 @@ class ListingViewModel {
             requestExecuter.execute { [weak self] (model, error) in
                 let data = model?.data ?? []
                 self?.coins = data
-                SharedData.shared.udpate(data)
+                SyncCoordinator.shared.coins = data
                 completion(nil)
             }
         } catch {

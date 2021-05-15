@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Asset {
+struct Asset2 {
     var name: String
     var amount: Double
     var price: Double

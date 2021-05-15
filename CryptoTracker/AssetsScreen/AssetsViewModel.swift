@@ -10,20 +10,15 @@ import SwiftCrypto
 
 class AssetsViewModel {
     var updateUI: (()->())?
-    
     var response: BinanceAccount?
     
+    var assets = [Asset]()
     var usdValue: Double {
-        SharedData.shared.assets.filter({ $0.amount != 0 }).map({ $0.price }).reduce(0, +)
+        assets.map({ $0.price * $0.amount }).reduce(0, +)
     }
     
-    var assets: [Asset] {
-        SharedData.shared.assets.filter({ $0.amount != 0 })
-    }
-    
-    var snapTime: String {
-        let updateTime = response?.updateTime ?? 0
-        return "\(Date(timeIntervalSince1970: updateTime/1000))"
+    init() {
+        self.assets = SyncCoordinator.shared.getAssets()
     }
     
     func fetchAssets() {
@@ -54,12 +49,12 @@ class AssetsViewModel {
                     print(error)
                 } else {
                     self?.response = model
-                    SharedData.shared.udpate(self?.response?.balances ?? [])
+                    SyncCoordinator.shared.udpate(self?.response?.balances ?? [])
+                    self?.assets = SyncCoordinator.shared.getAssets()
                     DispatchQueue.main.async {
                         self?.updateUI?()
                     }
                 }
-                
             })
         } catch {
             print(error)

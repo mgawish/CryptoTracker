@@ -38,7 +38,7 @@ extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssetCell", for: indexPath)
         let asset = viewModel.assets[indexPath.row] 
-        cell.textLabel?.text =  "\(asset.amount) \(asset.value)"
+        cell.textLabel?.text =  "\(asset.name) - \(asset.amount) \(asset.price)"
         return cell
     }
 }

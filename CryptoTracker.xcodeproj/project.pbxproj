@@ -13,6 +13,9 @@
 		754422EB26261AE8000D6F2D /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422EA26261AE8000D6F2D /* AssetsViewController.swift */; };
 		754422F326261AF0000D6F2D /* AssetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422F226261AF0000D6F2D /* AssetsViewModel.swift */; };
 		754422F826261B72000D6F2D /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754422F726261B72000D6F2D /* Assets.storyboard */; };
+		7556C181264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7556C17D264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld */; };
+		7556C198264FCE2000E524B0 /* Asset+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556C196264FCE2000E524B0 /* Asset+CoreDataClass.swift */; };
+		7556C199264FCE2000E524B0 /* Asset+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556C197264FCE2000E524B0 /* Asset+CoreDataProperties.swift */; };
 		7558F2BF2642D07000AE335E /* BinanceSystemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */; };
 		756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C147926217B5D006470DE /* ResponseStatus.swift */; };
 		756C148A26218363006470DE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C148926218363006470DE /* DetailsViewController.swift */; };
@@ -21,20 +24,19 @@
 		759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B184426216A8D00E4E6CC /* SceneDelegate.swift */; };
 		759B184726216A8D00E4E6CC /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B184626216A8D00E4E6CC /* ListingViewController.swift */; };
 		759B184A26216A8D00E4E6CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759B184826216A8D00E4E6CC /* Main.storyboard */; };
-		759B184D26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 759B184B26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld */; };
 		759B184F26216A9000E4E6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759B184E26216A9000E4E6CC /* Assets.xcassets */; };
 		759B185226216A9000E4E6CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759B185026216A9000E4E6CC /* LaunchScreen.storyboard */; };
 		759B185D26216A9000E4E6CC /* CryptoTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B185C26216A9000E4E6CC /* CryptoTrackerTests.swift */; };
 		759B186826216A9000E4E6CC /* CryptoTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B186726216A9000E4E6CC /* CryptoTrackerUITests.swift */; };
 		759B187926216AA100E4E6CC /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B187826216AA100E4E6CC /* ListingViewModel.swift */; };
-		759B188126216AE100E4E6CC /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B188026216AE100E4E6CC /* Coin.swift */; };
+		759B188126216AE100E4E6CC /* CMCCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B188026216AE100E4E6CC /* CMCCoin.swift */; };
 		759B18A226216EFE00E4E6CC /* ListingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B18A126216EFE00E4E6CC /* ListingResponse.swift */; };
 		759B18A72621733600E4E6CC /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B18A62621733600E4E6CC /* ListingCell.swift */; };
 		759BC16A2642E1FA009CE67B /* SwiftCrypto in Frameworks */ = {isa = PBXBuildFile; productRef = 759BC1692642E1FA009CE67B /* SwiftCrypto */; };
 		759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BC16E2642E699009CE67B /* SnapshotResponse.swift */; };
 		75DBC4D0264535BF0086D8FC /* BinanceAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4CF264535BF0086D8FC /* BinanceAccount.swift */; };
-		75DBC4E126453D540086D8FC /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4E026453D540086D8FC /* Asset.swift */; };
-		75DBC4EF26453E520086D8FC /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4EE26453E520086D8FC /* SharedData.swift */; };
+		75DBC4E126453D540086D8FC /* Asset2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4E026453D540086D8FC /* Asset2.swift */; };
+		75DBC4EF26453E520086D8FC /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */; };
 		75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */; };
 		75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6FB326235CEF0008C9F8 /* NetworkError.swift */; };
 		75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */; };
@@ -68,6 +70,9 @@
 		754422EA26261AE8000D6F2D /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		754422F226261AF0000D6F2D /* AssetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewModel.swift; sourceTree = "<group>"; };
 		754422F726261B72000D6F2D /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
+		7556C17E264FCDAC00E524B0 /* CryptoTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoTracker.xcdatamodel; sourceTree = "<group>"; };
+		7556C196264FCE2000E524B0 /* Asset+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7556C197264FCE2000E524B0 /* Asset+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7558F2BE2642D07000AE335E /* BinanceSystemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceSystemStatus.swift; sourceTree = "<group>"; };
 		756C147926217B5D006470DE /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		756C148926218363006470DE /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +82,6 @@
 		759B184426216A8D00E4E6CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		759B184626216A8D00E4E6CC /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		759B184926216A8D00E4E6CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		759B184C26216A8D00E4E6CC /* CryptoTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoTracker.xcdatamodel; sourceTree = "<group>"; };
 		759B184E26216A9000E4E6CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		759B185126216A9000E4E6CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759B185326216A9000E4E6CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,13 +92,13 @@
 		759B186726216A9000E4E6CC /* CryptoTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTrackerUITests.swift; sourceTree = "<group>"; };
 		759B186926216A9000E4E6CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		759B187826216AA100E4E6CC /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
-		759B188026216AE100E4E6CC /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		759B188026216AE100E4E6CC /* CMCCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCCoin.swift; sourceTree = "<group>"; };
 		759B18A126216EFE00E4E6CC /* ListingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingResponse.swift; sourceTree = "<group>"; };
 		759B18A62621733600E4E6CC /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		759BC16E2642E699009CE67B /* SnapshotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotResponse.swift; sourceTree = "<group>"; };
 		75DBC4CF264535BF0086D8FC /* BinanceAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceAccount.swift; sourceTree = "<group>"; };
-		75DBC4E026453D540086D8FC /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
-		75DBC4EE26453E520086D8FC /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		75DBC4E026453D540086D8FC /* Asset2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset2.swift; sourceTree = "<group>"; };
+		75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinator.swift; sourceTree = "<group>"; };
 		75EC6FAB26235BBE0008C9F8 /* RequestExecuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecuter.swift; sourceTree = "<group>"; };
 		75EC6FB326235CEF0008C9F8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		75F8DCF1264261A800F66B7C /* CMCEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCEndpoint.swift; sourceTree = "<group>"; };
@@ -185,7 +189,6 @@
 				759B184E26216A9000E4E6CC /* Assets.xcassets */,
 				759B185026216A9000E4E6CC /* LaunchScreen.storyboard */,
 				759B185326216A9000E4E6CC /* Info.plist */,
-				759B184B26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld */,
 			);
 			path = CryptoTracker;
 			sourceTree = "<group>";
@@ -211,7 +214,7 @@
 		759B18AB262173F300E4E6CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				75DBC4DF26453D480086D8FC /* Shared */,
+				75DBC4DF26453D480086D8FC /* CoreData */,
 				75DBC4D426453D130086D8FC /* CMC */,
 				75DBC4DB26453D380086D8FC /* Binance */,
 			);
@@ -232,7 +235,7 @@
 		75DBC4D426453D130086D8FC /* CMC */ = {
 			isa = PBXGroup;
 			children = (
-				759B188026216AE100E4E6CC /* Coin.swift */,
+				759B188026216AE100E4E6CC /* CMCCoin.swift */,
 				756C147926217B5D006470DE /* ResponseStatus.swift */,
 				759B18A126216EFE00E4E6CC /* ListingResponse.swift */,
 			);
@@ -250,13 +253,16 @@
 			path = Binance;
 			sourceTree = "<group>";
 		};
-		75DBC4DF26453D480086D8FC /* Shared */ = {
+		75DBC4DF26453D480086D8FC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				75DBC4E026453D540086D8FC /* Asset.swift */,
-				75DBC4EE26453E520086D8FC /* SharedData.swift */,
+				7556C196264FCE2000E524B0 /* Asset+CoreDataClass.swift */,
+				7556C197264FCE2000E524B0 /* Asset+CoreDataProperties.swift */,
+				7556C17D264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld */,
+				75DBC4EE26453E520086D8FC /* SyncCoordinator.swift */,
+				75DBC4E026453D540086D8FC /* Asset2.swift */,
 			);
-			path = Shared;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		75F8DCFB26426E4D00F66B7C /* Networking */ = {
@@ -411,7 +417,7 @@
 			files = (
 				7541B4B82643EDAB006074B1 /* ServerTimeResponse.swift in Sources */,
 				756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */,
-				759B188126216AE100E4E6CC /* Coin.swift in Sources */,
+				759B188126216AE100E4E6CC /* CMCCoin.swift in Sources */,
 				754422F326261AF0000D6F2D /* AssetsViewModel.swift in Sources */,
 				759BC16F2642E699009CE67B /* SnapshotResponse.swift in Sources */,
 				759B187926216AA100E4E6CC /* ListingViewModel.swift in Sources */,
@@ -421,19 +427,21 @@
 				759B184326216A8D00E4E6CC /* AppDelegate.swift in Sources */,
 				754422EB26261AE8000D6F2D /* AssetsViewController.swift in Sources */,
 				75DBC4D0264535BF0086D8FC /* BinanceAccount.swift in Sources */,
-				75DBC4EF26453E520086D8FC /* SharedData.swift in Sources */,
+				75DBC4EF26453E520086D8FC /* SyncCoordinator.swift in Sources */,
 				759B184526216A8D00E4E6CC /* SceneDelegate.swift in Sources */,
-				759B184D26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld in Sources */,
 				75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */,
 				75F8DD1F2642CCBE00F66B7C /* BinanceEndpoint.swift in Sources */,
+				7556C199264FCE2000E524B0 /* Asset+CoreDataProperties.swift in Sources */,
 				754422E52625D857000D6F2D /* MainViewController.swift in Sources */,
-				75DBC4E126453D540086D8FC /* Asset.swift in Sources */,
+				7556C198264FCE2000E524B0 /* Asset+CoreDataClass.swift in Sources */,
+				75DBC4E126453D540086D8FC /* Asset2.swift in Sources */,
 				756C148A26218363006470DE /* DetailsViewController.swift in Sources */,
 				75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */,
 				75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */,
 				75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */,
 				751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */,
 				758231D32623708D00809870 /* WebViewController.swift in Sources */,
+				7556C181264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld in Sources */,
 				7558F2BF2642D07000AE335E /* BinanceSystemStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,13 +804,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		759B184B26216A8D00E4E6CC /* CryptoTracker.xcdatamodeld */ = {
+		7556C17D264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				759B184C26216A8D00E4E6CC /* CryptoTracker.xcdatamodel */,
+				7556C17E264FCDAC00E524B0 /* CryptoTracker.xcdatamodel */,
 			);
-			currentVersion = 759B184C26216A8D00E4E6CC /* CryptoTracker.xcdatamodel */;
-			path = CryptoTracker.xcdatamodeld;
+			currentVersion = 7556C17E264FCDAC00E524B0 /* CryptoTracker.xcdatamodel */;
+			name = CryptoTracker.xcdatamodeld;
+			path = ../../../../../../Desktop/CryptoTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
