@@ -17,9 +17,9 @@ extension Asset {
     }
 
     @NSManaged public var amount: Double
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var price: Double
-    @NSManaged public var source: String?
+    @NSManaged public var source: String
     
     var usdValue: Double {
         price * amount

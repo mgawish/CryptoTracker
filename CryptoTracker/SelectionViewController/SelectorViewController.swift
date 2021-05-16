@@ -16,7 +16,7 @@ class SelectorViewController: UIViewController {
             filteredData = data
         }
     }
-    var didSelectRow: ((Int)->())?
+    var didSelectValue: ((String)->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,13 +73,12 @@ extension SelectorViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectRow?(indexPath.row)
+        didSelectValue?(filteredData[indexPath.row])
     }
 }
 
 extension SelectorViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         filterData(searchText)
     }
 }

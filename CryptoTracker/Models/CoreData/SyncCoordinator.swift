@@ -30,21 +30,38 @@ class SyncCoordinator {
             if let asset = try? context.fetch(request).first {
                 asset.amount = b.displayAmount
                 asset.price = coin?.displayPrice ?? 0
+                print("\(asset.name) updated from binance")
             } else {
                 let asset = Asset(context: context)
                 asset.name = b.asset
                 asset.amount = b.displayAmount
                 asset.price = coin?.displayPrice ?? 0
                 asset.source = Source.binance.rawValue
+                print("\(asset.name) created from binance")
             }
-            DispatchQueue.main.async {
-                self.saveContext()
-            }
+        }
+        DispatchQueue.main.async {
+            self.saveContext()
         }
     }
     
-    func update(_ coing: CMCCoin, amount: Double) {
-        
+    func update(_ coin: CMCCoin, amount: Double) {
+        let context = persistentContainer.viewContext
+        let request = Asset.createFetchRequest()
+        request.predicate = NSPredicate(format: "name == %@ AND source == %@", coin.symbol, Source.offline.rawValue)
+        if let asset = try? context.fetch(request).first {
+            asset.amount = amount
+            asset.price = coin.displayPrice
+            print("\(asset.name) updated from offline")
+        } else {
+            let asset = Asset(context: context)
+            asset.name = coin.symbol
+            asset.amount = amount
+            asset.price = coin.displayPrice
+            asset.source = Source.offline.rawValue
+            print("\(asset.name) created from offline")
+        }
+        self.saveContext()
     }
     
     // MARK: - Core Data stack
@@ -78,5 +95,6 @@ class SyncCoordinator {
 extension SyncCoordinator {
     enum Source: String {
         case binance
+        case offline
     }
 }

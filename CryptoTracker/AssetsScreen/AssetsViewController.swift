@@ -29,6 +29,11 @@ class AssetsViewController: UIViewController {
         viewModel.fetchAssets()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     func updateUI() {
         totalLabel.text = "$ \(viewModel.usdValue)"
         tableView.reloadData()
@@ -42,8 +47,8 @@ class AssetsViewController: UIViewController {
         
         let data = SyncCoordinator.shared.coins.map({ $0.symbol })
         vc.data = data
-        vc.didSelectRow = { [weak self] index in
-            if let coin = SyncCoordinator.shared.coins.filter({ $0.symbol == data[index] }).first {
+        vc.didSelectValue = { [weak self] value in
+            if let coin = SyncCoordinator.shared.coins.filter({ $0.symbol == value }).first {
                 self?.addAmount(coin, nc: nc)
             }
         }
@@ -52,20 +57,22 @@ class AssetsViewController: UIViewController {
     func addAmount(_ coin: CMCCoin, nc: UINavigationController) {
         if let vc = UIStoryboard(name: "Amounts", bundle: nil).instantiateViewController(identifier: "AmountsViewController") as? AmountsViewController {
             vc.coin = coin
+            vc.didUpdate = { [weak self] in
+                self?.updateUI()
+            }
             nc.pushViewController(vc, animated: true)
         }
-       
     }
 }
 
 extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.assets.count
+        viewModel.combinedAssets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssetCell.Identifier, for: indexPath) as? AssetCell
-        let asset = viewModel.assets[indexPath.row]
+        let asset = viewModel.combinedAssets[indexPath.row]
         cell?.configure(asset)
         return cell ?? UITableViewCell()
     }

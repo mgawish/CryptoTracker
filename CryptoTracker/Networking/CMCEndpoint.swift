@@ -29,7 +29,8 @@ extension CMCEndpoint: EndpointProtocol {
         case .listing(let sort):
             return [
                 URLQueryItem(name: "sort", value: sort.getStrings().0),
-                URLQueryItem(name: "sort_dir", value: sort.getStrings().1)
+                URLQueryItem(name: "sort_dir", value: sort.getStrings().1),
+                URLQueryItem(name: "limit", value: "4000")
             ]
         }
     }

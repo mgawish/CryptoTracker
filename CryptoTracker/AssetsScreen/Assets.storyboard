@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="60" width="414" height="786"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Z-va-8ai">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="33.5"/>
+                                        <rect key="frame" x="12" y="0.0" width="390" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="q1Z-va-8ai" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="16" id="6xZ-oO-Qfm"/>
+                                    <constraint firstItem="q1Z-va-8ai" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="12" id="6xZ-oO-Qfm"/>
                                     <constraint firstAttribute="trailing" secondItem="ceE-Hv-Yrv" secondAttribute="trailing" id="7dl-ef-buD"/>
                                     <constraint firstItem="ceE-Hv-Yrv" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" id="Qlc-Me-ryd"/>
                                     <constraint firstAttribute="trailing" secondItem="25v-Kb-weI" secondAttribute="trailing" constant="12" id="SfN-zD-pK9"/>

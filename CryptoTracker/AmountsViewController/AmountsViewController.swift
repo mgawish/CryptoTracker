@@ -12,6 +12,7 @@ class AmountsViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
+    var didUpdate: (()->())?
     var coin: CMCCoin?
     var amount = 0.0 {
         didSet {
@@ -38,6 +39,8 @@ class AmountsViewController: UIViewController {
     @objc func saveAsset() {
         guard let coin = coin else { return }
         SyncCoordinator.shared.update(coin, amount: amount)
+        navigationController?.dismiss(animated: true, completion: nil)
+        didUpdate?()
     }
 }
 

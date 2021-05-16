@@ -14,10 +14,11 @@ class AssetCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-    func configure(_ asset: Asset) {
+    func configure(_ asset: AssetsViewModel.CombinedAsset) {
         nameLabel.text = asset.name
         priceLabel.text = "$\(asset.price)"
         amountLabel.text = "\(asset.amount)"
-        valueLabel.text = "$\(asset.usdValue.roundedUpTwoDecimals())"
+        let value = asset.price * asset.amount
+        valueLabel.text = "$\(value.roundedUpTwoDecimals())"
     }
 }
