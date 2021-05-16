@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750FBABF2650F0EB003905E3 /* SelectorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBABE2650F0EB003905E3 /* SelectorTableCell.swift */; };
+		750FBAC42650FD76003905E3 /* AmountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBAC32650FD76003905E3 /* AmountsViewController.swift */; };
+		750FBAC92650FD87003905E3 /* Amounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 750FBAC82650FD87003905E3 /* Amounts.storyboard */; };
+		7516C01C2650531E007C4009 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516C01B2650531E007C4009 /* SelectorViewController.swift */; };
 		751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4D6726218D4600D368D9 /* Enviroment.swift */; };
 		7541B4B82643EDAB006074B1 /* ServerTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */; };
 		754422E52625D857000D6F2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754422E42625D857000D6F2D /* MainViewController.swift */; };
@@ -66,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750FBABE2650F0EB003905E3 /* SelectorTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorTableCell.swift; sourceTree = "<group>"; };
+		750FBAC32650FD76003905E3 /* AmountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountsViewController.swift; sourceTree = "<group>"; };
+		750FBAC82650FD87003905E3 /* Amounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Amounts.storyboard; sourceTree = "<group>"; };
+		7516C01B2650531E007C4009 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		751E4D6626218D3400D368D9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		751E4D6726218D4600D368D9 /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		7541B4B72643EDAB006074B1 /* ServerTimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTimeResponse.swift; sourceTree = "<group>"; };
@@ -139,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750FBACD2650FD8D003905E3 /* AmountsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				750FBAC32650FD76003905E3 /* AmountsViewController.swift */,
+				750FBAC82650FD87003905E3 /* Amounts.storyboard */,
+			);
+			path = AmountsViewController;
+			sourceTree = "<group>";
+		};
 		7516C017265051D7007C4009 /* ListingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +174,15 @@
 				754422F726261B72000D6F2D /* Assets.storyboard */,
 			);
 			path = AssetsScreen;
+			sourceTree = "<group>";
+		};
+		7549EF1A26505B3D00115DD3 /* SelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7516C01B2650531E007C4009 /* SelectorViewController.swift */,
+				750FBABE2650F0EB003905E3 /* SelectorTableCell.swift */,
+			);
+			path = SelectionViewController;
 			sourceTree = "<group>";
 		};
 		756C148E26218375006470DE /* DetailsScreen */ = {
@@ -218,9 +244,10 @@
 				759B18AC2621740100E4E6CC /* ListingScreen */,
 				756C148E26218375006470DE /* DetailsScreen */,
 				754422E926261AD9000D6F2D /* AssetsScreen */,
+				750FBACD2650FD8D003905E3 /* AmountsViewController */,
+				7549EF1A26505B3D00115DD3 /* SelectionViewController */,
 				7589A349264FE0C70029598E /* Extensions */,
 				758231D22623708D00809870 /* WebViewController.swift */,
-				759B184826216A8D00E4E6CC /* Main.storyboard */,
 				759B184E26216A9000E4E6CC /* Assets.xcassets */,
 				759B185026216A9000E4E6CC /* LaunchScreen.storyboard */,
 				759B185326216A9000E4E6CC /* Info.plist */,
@@ -262,6 +289,7 @@
 				7516C017265051D7007C4009 /* ListingCell */,
 				759B187826216AA100E4E6CC /* ListingViewModel.swift */,
 				759B184626216A8D00E4E6CC /* ListingViewController.swift */,
+				759B184826216A8D00E4E6CC /* Main.storyboard */,
 			);
 			path = ListingScreen;
 			sourceTree = "<group>";
@@ -424,6 +452,7 @@
 				7589A334264FDE420029598E /* AssetCell.xib in Resources */,
 				759B184A26216A8D00E4E6CC /* Main.storyboard in Resources */,
 				754422F826261B72000D6F2D /* Assets.storyboard in Resources */,
+				750FBAC92650FD87003905E3 /* Amounts.storyboard in Resources */,
 				75F8DD152642BD7700F66B7C /* ListingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750FBAC42650FD76003905E3 /* AmountsViewController.swift in Sources */,
 				7541B4B82643EDAB006074B1 /* ServerTimeResponse.swift in Sources */,
 				756C147A26217B5D006470DE /* ResponseStatus.swift in Sources */,
 				759B188126216AE100E4E6CC /* CMCCoin.swift in Sources */,
@@ -473,8 +503,10 @@
 				7556C198264FCE2000E524B0 /* Asset+CoreDataClass.swift in Sources */,
 				756C148A26218363006470DE /* DetailsViewController.swift in Sources */,
 				75EC6FB426235CEF0008C9F8 /* NetworkError.swift in Sources */,
+				7516C01C2650531E007C4009 /* SelectorViewController.swift in Sources */,
 				75F8DCF2264261A800F66B7C /* CMCEndpoint.swift in Sources */,
 				75EC6FAC26235BBE0008C9F8 /* RequestExecuter.swift in Sources */,
+				750FBABF2650F0EB003905E3 /* SelectorTableCell.swift in Sources */,
 				751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */,
 				758231D32623708D00809870 /* WebViewController.swift in Sources */,
 				7556C181264FCDAC00E524B0 /* CryptoTracker.xcdatamodeld in Sources */,

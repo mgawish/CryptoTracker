@@ -20,6 +20,10 @@ class AssetsViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: AssetCell.Identifier, bundle: nil),
                            forCellReuseIdentifier: AssetCell.Identifier)
+        
+        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                                    target: self,
+                                                                    action: #selector(addAsset))
         updateUI()
         viewModel.updateUI = updateUI
         viewModel.fetchAssets()
@@ -28,6 +32,29 @@ class AssetsViewController: UIViewController {
     func updateUI() {
         totalLabel.text = "$ \(viewModel.usdValue)"
         tableView.reloadData()
+    }
+    
+    @objc func addAsset() {
+        let vc = SelectorViewController()
+        let nc = UINavigationController()
+        nc.addChild(vc)
+        present(nc, animated: true, completion: nil)
+        
+        let data = SyncCoordinator.shared.coins.map({ $0.symbol })
+        vc.data = data
+        vc.didSelectRow = { [weak self] index in
+            if let coin = SyncCoordinator.shared.coins.filter({ $0.symbol == data[index] }).first {
+                self?.addAmount(coin, nc: nc)
+            }
+        }
+    }
+    
+    func addAmount(_ coin: CMCCoin, nc: UINavigationController) {
+        if let vc = UIStoryboard(name: "Amounts", bundle: nil).instantiateViewController(identifier: "AmountsViewController") as? AmountsViewController {
+            vc.coin = coin
+            nc.pushViewController(vc, animated: true)
+        }
+       
     }
 }
 

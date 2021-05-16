@@ -40,8 +40,11 @@ class SyncCoordinator {
             DispatchQueue.main.async {
                 self.saveContext()
             }
-
         }
+    }
+    
+    func update(_ coing: CMCCoin, amount: Double) {
+        
     }
     
     // MARK: - Core Data stack

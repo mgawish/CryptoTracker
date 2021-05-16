@@ -15,11 +15,11 @@ class ListingViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(sortList))
+        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.up.arrow.down.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(sortList))
         
         tableView.register(UINib(nibName: ListingCell.identifier, bundle: nil),
                            forCellReuseIdentifier: ListingCell.identifier)
