@@ -16,13 +16,13 @@ class AssetsViewModel {
         SyncCoordinator.shared.getAssets()
     }
     
-    var combinedAssets: [CombinedAsset] {
-        var combinedAssets = [CombinedAsset]()
+    var combinedAssets: [AssetCellViewModel] {
+        var combinedAssets = [AssetCellViewModel]()
         assets.forEach({ asset in
             if let index = combinedAssets.firstIndex(where: { $0.name == asset.name }) {
                 combinedAssets[index].amount += asset.amount
             } else {
-                let combinedAsset = CombinedAsset(name: asset.name, price: asset.price, amount: asset.amount)
+                let combinedAsset = AssetCellViewModel(asset)
                 combinedAssets.append(combinedAsset)
             }
         })

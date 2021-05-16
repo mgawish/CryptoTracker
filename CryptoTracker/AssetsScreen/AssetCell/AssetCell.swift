@@ -14,7 +14,7 @@ class AssetCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-    func configure(_ asset: AssetsViewModel.CombinedAsset) {
+    func configure(_ asset: AssetCellViewModel) {
         nameLabel.text = asset.name
         priceLabel.text = "$\(asset.price)"
         amountLabel.text = "\(asset.amount)"

@@ -12,9 +12,12 @@ class SyncCoordinator {
     static var shared = SyncCoordinator()
     var coins = [CMCCoin]()
     
-    func getAssets() -> [Asset] {
+    func getAssets(name: String? = nil) -> [Asset] {
         let request = Asset.createFetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "price", ascending: false)]
+        if let name = name {
+            request.predicate = NSPredicate(format: "name == %@", name)
+        }
         let assets = try? persistentContainer.viewContext.fetch(request)
         return assets ?? []
     }

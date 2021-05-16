@@ -63,6 +63,12 @@ class AssetsViewController: UIViewController {
             nc.pushViewController(vc, animated: true)
         }
     }
+    
+    func segueToAssetDetails(_ asset: AssetCellViewModel) {
+        let vc = AssetDetailsViewController()
+        vc.assetName = asset.name
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -75,5 +81,10 @@ extension AssetsViewController: UITableViewDelegate, UITableViewDataSource {
         let asset = viewModel.combinedAssets[indexPath.row]
         cell?.configure(asset)
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let asset = viewModel.combinedAssets[indexPath.row]
+        segueToAssetDetails(asset)
     }
 }
