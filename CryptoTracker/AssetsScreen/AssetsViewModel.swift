@@ -21,8 +21,11 @@ class AssetsViewModel {
         assets.forEach({ asset in
             if let index = combinedAssets.firstIndex(where: { $0.name == asset.name }) {
                 combinedAssets[index].amount += asset.amount
+                if !combinedAssets[index].sources.contains(asset.source) {
+                    combinedAssets[index].sources.append(asset.source)
+                }
             } else {
-                let combinedAsset = AssetCellViewModel(asset)
+                let combinedAsset = AssetCellViewModel(asset, sources: [asset.source])
                 combinedAssets.append(combinedAsset)
             }
         })

@@ -10,6 +10,6 @@ import Foundation
 struct AssetDetailsViewModel {
     let assetName: String
     var assets: [AssetCellViewModel] {
-        SyncCoordinator.shared.getAssets(name: assetName).map({ AssetCellViewModel($0) })
+        SyncCoordinator.shared.getAssets(name: assetName).map({ AssetCellViewModel($0, sources: []) })
     }
 }

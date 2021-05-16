@@ -11,10 +11,12 @@ struct AssetCellViewModel {
     let name: String
     var price: Double
     var amount: Double
+    var sources: [String]
     
-    init(_ asset: Asset) {
+    init(_ asset: Asset, sources: [String]) {
         self.name = asset.name
         self.price = asset.price
         self.amount = asset.amount
+        self.sources = sources
     }
 }

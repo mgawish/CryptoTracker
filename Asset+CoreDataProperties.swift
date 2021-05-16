@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension Asset: AssetProtocol {
+extension Asset {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<Asset> {
         return NSFetchRequest<Asset>(entityName: "Asset")

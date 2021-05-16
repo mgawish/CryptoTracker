@@ -12,7 +12,6 @@
 		750FBAC92650FD87003905E3 /* Amounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 750FBAC82650FD87003905E3 /* Amounts.storyboard */; };
 		750FBAE026517AC7003905E3 /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBADF26517AC7003905E3 /* AssetDetailsViewController.swift */; };
 		750FBAE826517C1F003905E3 /* AssetDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBAE726517C1F003905E3 /* AssetDetailsViewModel.swift */; };
-		750FBAF426517D46003905E3 /* AssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBAF326517D46003905E3 /* AssetProtocol.swift */; };
 		750FBAFF2651870C003905E3 /* AssetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FBAFE2651870C003905E3 /* AssetCellViewModel.swift */; };
 		7516C01C2650531E007C4009 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516C01B2650531E007C4009 /* SelectorViewController.swift */; };
 		751E4D6826218D4600D368D9 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4D6726218D4600D368D9 /* Enviroment.swift */; };
@@ -79,7 +78,6 @@
 		750FBAC82650FD87003905E3 /* Amounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Amounts.storyboard; sourceTree = "<group>"; };
 		750FBADF26517AC7003905E3 /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
 		750FBAE726517C1F003905E3 /* AssetDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewModel.swift; sourceTree = "<group>"; };
-		750FBAF326517D46003905E3 /* AssetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetProtocol.swift; sourceTree = "<group>"; };
 		750FBAFE2651870C003905E3 /* AssetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCellViewModel.swift; sourceTree = "<group>"; };
 		7516C01B2650531E007C4009 /* SelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
 		751E4D6626218D3400D368D9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		759B18AB262173F300E4E6CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				750FBAF326517D46003905E3 /* AssetProtocol.swift */,
 				75DBC4DF26453D480086D8FC /* CoreData */,
 				75DBC4D426453D130086D8FC /* CMC */,
 				75DBC4DB26453D380086D8FC /* Binance */,
@@ -521,7 +518,6 @@
 				75F8DCF7264261C400F66B7C /* EndpointProtocol.swift in Sources */,
 				75F8DD1F2642CCBE00F66B7C /* BinanceEndpoint.swift in Sources */,
 				7556C199264FCE2000E524B0 /* Asset+CoreDataProperties.swift in Sources */,
-				750FBAF426517D46003905E3 /* AssetProtocol.swift in Sources */,
 				750FBAFF2651870C003905E3 /* AssetCellViewModel.swift in Sources */,
 				754422E52625D857000D6F2D /* MainViewController.swift in Sources */,
 				7556C198264FCE2000E524B0 /* Asset+CoreDataClass.swift in Sources */,

@@ -13,6 +13,7 @@ class AssetCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var sourcesLabel: UILabel!
     
     func configure(_ asset: AssetCellViewModel) {
         nameLabel.text = asset.name
@@ -20,5 +21,6 @@ class AssetCell: UITableViewCell {
         amountLabel.text = "\(asset.amount)"
         let value = asset.price * asset.amount
         valueLabel.text = "$\(value.roundedUpTwoDecimals())"
+        sourcesLabel.text = asset.sources.map({ $0.capitalized }).joined(separator: " ")
     }
 }

@@ -3,27 +3,39 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCell" rowHeight="58" id="PgL-vU-LVD" customClass="AssetCell" customModule="CryptoTracker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="58"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCell" rowHeight="68" id="PgL-vU-LVD" customClass="AssetCell" customModule="CryptoTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="68"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PgL-vU-LVD" id="TIb-a5-2MU">
-                <rect key="frame" x="0.0" y="0.0" width="319" height="58"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="jEE-Wp-DNk">
-                        <rect key="frame" x="12" y="12" width="295" height="34"/>
+                        <rect key="frame" x="12" y="4" width="295" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjz-ad-EGQ">
-                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Q9-IeS">
+                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjz-ad-EGQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Binance Offline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x1-ab-Fco">
+                                        <rect key="frame" x="0.0" y="23.5" width="98.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEA-ZB-uLe">
                                 <rect key="frame" x="98.5" y="0.0" width="98" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -31,16 +43,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-e8-GjG">
-                                <rect key="frame" x="196.5" y="0.0" width="98.5" height="34"/>
+                                <rect key="frame" x="196.5" y="0.0" width="98.5" height="43"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faa-Fb-mAW">
-                                        <rect key="frame" x="78" y="0.0" width="20.5" height="15"/>
+                                        <rect key="frame" x="78" y="0.0" width="20.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xld-jR-RKP">
-                                        <rect key="frame" x="70" y="19" width="28.5" height="15"/>
+                                        <rect key="frame" x="70" y="23.5" width="28.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -51,19 +63,25 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="jEE-Wp-DNk" secondAttribute="trailing" constant="12" id="7wo-dT-oUf"/>
-                    <constraint firstItem="jEE-Wp-DNk" firstAttribute="top" secondItem="TIb-a5-2MU" secondAttribute="top" constant="12" id="qWp-qV-nuy"/>
-                    <constraint firstItem="jEE-Wp-DNk" firstAttribute="leading" secondItem="TIb-a5-2MU" secondAttribute="leading" constant="12" id="ulX-nZ-qHT"/>
-                    <constraint firstAttribute="bottom" secondItem="jEE-Wp-DNk" secondAttribute="bottom" constant="12" id="zwc-p9-UMA"/>
+                    <constraint firstAttribute="trailing" secondItem="jEE-Wp-DNk" secondAttribute="trailing" constant="12" id="4Ps-6C-sPp"/>
+                    <constraint firstItem="jEE-Wp-DNk" firstAttribute="leading" secondItem="TIb-a5-2MU" secondAttribute="leading" constant="12" id="Fxw-T0-U88"/>
+                    <constraint firstItem="jEE-Wp-DNk" firstAttribute="top" secondItem="TIb-a5-2MU" secondAttribute="top" constant="4" id="chA-kE-oHV"/>
+                    <constraint firstAttribute="bottom" secondItem="jEE-Wp-DNk" secondAttribute="bottom" constant="4" id="wLx-8o-Y2b"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="amountLabel" destination="faa-Fb-mAW" id="ymg-yj-LKx"/>
                 <outlet property="nameLabel" destination="tjz-ad-EGQ" id="Mpi-2a-IWU"/>
                 <outlet property="priceLabel" destination="QEA-ZB-uLe" id="3bs-HD-kXk"/>
+                <outlet property="sourcesLabel" destination="3x1-ab-Fco" id="kdl-5R-hUT"/>
                 <outlet property="valueLabel" destination="Xld-jR-RKP" id="LOm-P1-Ad9"/>
             </connections>
-            <point key="canvasLocation" x="-250.00000000000003" y="-304.01785714285711"/>
+            <point key="canvasLocation" x="-250.00000000000003" y="-302.00892857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
