@@ -45,16 +45,16 @@ class AssetsViewController: UIViewController {
         nc.addChild(vc)
         present(nc, animated: true, completion: nil)
         
-        let data = SyncCoordinator.shared.coins.map({ $0.symbol })
+        let data = SyncCoordinator.shared.getCoins().map({ $0.symbol })
         vc.data = data
         vc.didSelectValue = { [weak self] value in
-            if let coin = SyncCoordinator.shared.coins.filter({ $0.symbol == value }).first {
+            if let coin = SyncCoordinator.shared.getCoins(symbol: value).first {
                 self?.addAmount(coin, nc: nc)
             }
         }
     }
     
-    func addAmount(_ coin: CMCCoin, nc: UINavigationController) {
+    func addAmount(_ coin: Coin, nc: UINavigationController) {
         if let vc = UIStoryboard(name: "Amounts", bundle: nil).instantiateViewController(identifier: "AmountsViewController") as? AmountsViewController {
             vc.coin = coin
             vc.didUpdate = { [weak self] in

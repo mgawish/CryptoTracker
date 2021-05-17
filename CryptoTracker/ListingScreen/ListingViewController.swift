@@ -75,8 +75,9 @@ class ListingViewController: UIViewController {
         
     }
     
-    func segueToDetails(coin: CMCCoin) {
-        DetailsViewController.present(coin: coin, parent: self)
+    func segueToDetails(coin: Coin) {
+        WebViewController.present(urlString: "https://coinmarketcap.com/currencies/\(coin.slug)", parent: self)
+        //DetailsViewController.present(coin: coin, parent: self)
     }
 }
 

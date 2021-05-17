@@ -15,7 +15,7 @@ struct AssetCellViewModel {
     
     init(_ asset: Asset, sources: [String]) {
         self.name = asset.name
-        self.price = asset.price
+        self.price = asset.coin.price
         self.amount = asset.amount
         self.sources = sources
     }

@@ -29,6 +29,6 @@ class MainViewController: UITabBarController {
                                                                 for: .selected)
         
         tabBar.tintColor = tintColor
-        viewControllers = [listingViewController, assetViewController]
+        viewControllers = [assetViewController, listingViewController]
     }
 }

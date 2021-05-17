@@ -14,12 +14,13 @@ struct CMCCoin: Codable {
     let symbol: String
     let quote: Quote
     let slug: String
+    let cmc_rank: Int
     
-    var displayPrice: Double {
+    var price: Double {
         Double(round(quote.USD.price * 100) / 100)
     }
     
-    var displayChange: Double {
+    var priceChange: Double {
         Double(round(quote.USD.percent_change_24h * 100) / 100)
     }
 }
@@ -43,5 +44,6 @@ extension CMCCoin {
                                  symbol: "BTC",
                                  quote: Quote(USD: PriceBreakdown(price: 63328.262294438355,
                                                                   percent_change_24h: 5.70085299)),
-                                 slug: "bitcoin")
+                                 slug: "bitcoin",
+                                 cmc_rank: 1)
 }

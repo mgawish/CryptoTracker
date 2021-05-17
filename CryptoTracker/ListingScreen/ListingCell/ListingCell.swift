@@ -14,10 +14,10 @@ class ListingCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     
-    func configure(coin: CMCCoin) {
+    func configure(coin: Coin) {
         nameLabel.text = coin.symbol
-        priceLabel.text = "\(coin.displayPrice)"
-        changeLabel.text = "\(coin.displayChange)%"
+        priceLabel.text = "\(coin.price)"
+        changeLabel.text = "" //\(coin.displayChange)%"
         //changeLabel.textColor = coin.displayChange > 0 ? .green : .red
     }
 }

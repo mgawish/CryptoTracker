@@ -18,11 +18,25 @@ extension Asset {
 
     @NSManaged public var amount: Double
     @NSManaged public var name: String
-    @NSManaged public var price: Double
     @NSManaged public var source: String
+    @NSManaged public var portfolios: NSSet?
+    @NSManaged public var coin: Coin
     
-    var usdValue: Double {
-        price * amount
+    func configure(_ balance: BinanceAccount.Balance) {
+        self.name = balance.asset
+        self.amount = balance.displayAmount
+        self.source = Source.binance.rawValue
+
+    }
+    
+    func configure(_ coin: Coin, amount: Double) {
+        self.name = coin.symbol
+        self.amount = amount
+        self.source = Source.offline.rawValue
+    }
+    
+    func update(_ balance: BinanceAccount.Balance) {
+        self.amount = balance.displayAmount
     }
 }
 

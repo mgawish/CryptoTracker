@@ -13,7 +13,7 @@ class AmountsViewController: UIViewController {
     @IBOutlet weak var valueLabel: UILabel!
     
     var didUpdate: (()->())?
-    var coin: CMCCoin?
+    var coin: Coin?
     var amount = 0.0 {
         didSet {
             updateUI()
@@ -32,8 +32,8 @@ class AmountsViewController: UIViewController {
     
     func updateUI() {
         guard let coin = coin else { return }
-        priceLabel.text = "Price: $\(coin.displayPrice)"
-        valueLabel.text = "Value: \(amount * coin.displayPrice)"
+        priceLabel.text = "Price: $\(coin.price)"
+        valueLabel.text = "Value: \(amount * coin.price)"
     }
     
     @objc func saveAsset() {

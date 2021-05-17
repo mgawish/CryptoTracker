@@ -9,18 +9,19 @@ import Foundation
 
 class ListingViewModel {
     typealias Sort = ListingResponse.SortOption
-    var coins = [CMCCoin]()
+    var coins: [Coin] {
+        SyncCoordinator.shared.getCoins()
+    }
+    
     var currentSortOption: Sort = .martketCapDesc
     
     func fetchCoins(sort: Sort, completion: @escaping (Error?)->()) {
-        coins = []
         let endpoint = CMCEndpoint.listing(sort: sort)
         do {
             let requestExecuter = try RequestExecuter<ListingResponse>(endpoint)
             requestExecuter.execute { [weak self] (model, error) in
                 let data = model?.data ?? []
-                self?.coins = data
-                SyncCoordinator.shared.coins = data
+                SyncCoordinator.shared.update(data)
                 completion(nil)
             }
         } catch {

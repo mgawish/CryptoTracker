@@ -10,11 +10,10 @@ import UIKit
 
 class SyncCoordinator {
     static var shared = SyncCoordinator()
-    var coins = [CMCCoin]()
     
     func getAssets(name: String? = nil) -> [Asset] {
         let request = Asset.createFetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "price", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         if let name = name {
             request.predicate = NSPredicate(format: "name == %@", name)
         }
@@ -22,24 +21,32 @@ class SyncCoordinator {
         return assets ?? []
     }
     
+    func getCoins(symbol: String? = nil) -> [Coin] {
+        let request = Coin.createFetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "cmcRank", ascending: true)]
+        if let symbol = symbol {
+            request.predicate = NSPredicate(format: "symbol == %@", symbol)
+        }
+        let coins = try? persistentContainer.viewContext.fetch(request)
+        return coins ?? []
+    }
+    
+    //MARK:- Update binance
     func udpate(_ allBalance: [BinanceAccount.Balance]) {
         let balance = allBalance.filter({ $0.displayAmount != 0 })
-        let context = persistentContainer.viewContext
         
         for b in balance {
             let request = Asset.createFetchRequest()
-            let coin = coins.first(where: {$0.symbol == b.asset })
-            request.predicate = NSPredicate(format: "name == %@ AND source == %@", b.asset, Source.binance.rawValue)
-            if let asset = try? context.fetch(request).first {
+            request.predicate = NSPredicate(format: "name == %@ AND source == %@",
+                                            b.asset,
+                                            Asset.Source.binance.rawValue)
+            if let asset = try? persistentContainer.viewContext.fetch(request).first {
                 asset.amount = b.displayAmount
-                asset.price = coin?.displayPrice ?? 0
                 print("\(asset.name) updated from binance")
             } else {
-                let asset = Asset(context: context)
-                asset.name = b.asset
-                asset.amount = b.displayAmount
-                asset.price = coin?.displayPrice ?? 0
-                asset.source = Source.binance.rawValue
+                let asset = Asset(context: persistentContainer.viewContext)
+                asset.configure(b)
+                attachCoin(to: asset)
                 print("\(asset.name) created from binance")
             }
         }
@@ -48,23 +55,49 @@ class SyncCoordinator {
         }
     }
     
-    func update(_ coin: CMCCoin, amount: Double) {
-        let context = persistentContainer.viewContext
+    func attachCoin(to asset: Asset) {
+        let request = Coin.createFetchRequest()
+        request.predicate = NSPredicate(format: "symbol == %@", asset.name)
+        if let coin = try?  persistentContainer.viewContext.fetch(request).first {
+            asset.coin = coin
+            print("\(coin.name) coin attached to asset")
+        }
+    }
+    
+    //MARK:- Update offline
+    func update(_ coin: Coin, amount: Double) {
         let request = Asset.createFetchRequest()
-        request.predicate = NSPredicate(format: "name == %@ AND source == %@", coin.symbol, Source.offline.rawValue)
-        if let asset = try? context.fetch(request).first {
+        request.predicate = NSPredicate(format: "name == %@ AND source == %@",
+                                        coin.symbol,
+                                        Asset.Source.offline.rawValue)
+        if let asset = try? persistentContainer.viewContext.fetch(request).first {
             asset.amount = amount
-            asset.price = coin.displayPrice
             print("\(asset.name) updated from offline")
         } else {
-            let asset = Asset(context: context)
-            asset.name = coin.symbol
-            asset.amount = amount
-            asset.price = coin.displayPrice
-            asset.source = Source.offline.rawValue
+            let asset = Asset(context: persistentContainer.viewContext)
+            asset.configure(coin, amount: amount)
             print("\(asset.name) created from offline")
         }
         self.saveContext()
+    }
+    
+    //MARK:- Update cmc
+    func update(_ cmcCoins: [CMCCoin]) {
+        for cmcCoin in cmcCoins {
+            let request = Coin.createFetchRequest()
+            request.predicate = NSPredicate(format: "name == %@", cmcCoin.name)
+            if let coin = try? persistentContainer.viewContext.fetch(request).first {
+                coin.update(cmcCoin)
+                print("\(coin.name) \(coin.cmcRank) updated")
+            } else {
+                let coin = Coin(context: persistentContainer.viewContext)
+                coin.configure(cmcCoin)
+                print("\(coin.name) created")
+            }
+        }
+        
+        self.saveContext()
+        
     }
     
     // MARK: - Core Data stack
@@ -93,11 +126,4 @@ class SyncCoordinator {
         }
     }
     
-}
-
-extension SyncCoordinator {
-    enum Source: String {
-        case binance
-        case offline
-    }
 }
