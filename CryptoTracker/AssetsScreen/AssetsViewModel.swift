@@ -11,9 +11,21 @@ import SwiftCrypto
 class AssetsViewModel {
     var updateUI: (()->())?
     var response: BinanceAccount?
+    var portfolioName: String?
+    var usdValue: Double {
+        combinedAssets.map({ $0.price * $0.amount }).reduce(0, +).roundedUpTwoDecimals()
+    }
+
+    var portfolios: [Portfolio] {
+        SyncCoordinator.shared.getPortfolios()
+    }
     
     var assets: [Asset] {
-        SyncCoordinator.shared.getAssets()
+        if let portfolioName = portfolioName {
+            return SyncCoordinator.shared.getAssets(from: portfolioName)
+        } else {
+            return SyncCoordinator.shared.getAssets()
+        }
     }
     
     var combinedAssets: [AssetCellViewModel] {
@@ -29,13 +41,16 @@ class AssetsViewModel {
                 combinedAssets.append(combinedAsset)
             }
         })
+        
+        let total = combinedAssets.map({ $0.price * $0.amount }).reduce(0, +).roundedUpTwoDecimals()
+        combinedAssets.enumerated().forEach { (index, element) in
+            let value = element.price * element.amount
+            combinedAssets[index].percentage = value / total
+        }
             
         return combinedAssets
     }
     
-    var usdValue: Double {
-        return combinedAssets.map({ $0.price * $0.amount }).reduce(0, +).roundedUpTwoDecimals()
-    }
     
     func fetchAssets() {
         fetchTime()

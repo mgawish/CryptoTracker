@@ -12,6 +12,7 @@ struct AssetCellViewModel {
     var price: Double
     var amount: Double
     var sources: [String]
+    var percentage: Double?
     
     init(_ asset: Asset, sources: [String]) {
         self.name = asset.name

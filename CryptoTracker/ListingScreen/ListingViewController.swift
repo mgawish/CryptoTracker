@@ -15,15 +15,24 @@ class ListingViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(UINib(nibName: ListingCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: ListingCell.identifier)
+        fetchCoins()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateNavBar()
+    }
+    
+    func updateNavBar() {
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "arrow.up.arrow.down.circle"),
             style: .plain,
             target: self,
             action: #selector(sortList))
         
-        tableView.register(UINib(nibName: ListingCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: ListingCell.identifier)
-        fetchCoins()
     }
     
     func fetchCoins(sort: ListingResponse.SortOption = .martketCapDesc) {

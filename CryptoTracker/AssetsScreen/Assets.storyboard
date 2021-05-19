@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K5a-eF-4SN">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="K5a-eF-4SN">
                                 <rect key="frame" x="0.0" y="60" width="414" height="786"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Z-va-8ai">
@@ -25,23 +25,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25v-Kb-weI">
-                                        <rect key="frame" x="12" y="41.5" width="390" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m3o-LL-8SV">
+                                        <rect key="frame" x="12" y="45.5" width="390" height="32"/>
+                                        <segments>
+                                            <segment title="All"/>
+                                            <segment title="Portfolio"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentChanged:" destination="7LM-Za-Bap" eventType="valueChanged" id="xxg-76-h3k"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ceE-Hv-Yrv">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="686.5"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="697.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m3o-LL-8SV" secondAttribute="trailing" constant="12" id="2oR-pa-rmX"/>
                                     <constraint firstItem="q1Z-va-8ai" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="12" id="6xZ-oO-Qfm"/>
                                     <constraint firstAttribute="trailing" secondItem="ceE-Hv-Yrv" secondAttribute="trailing" id="7dl-ef-buD"/>
+                                    <constraint firstItem="m3o-LL-8SV" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="12" id="8dp-6l-Dim"/>
                                     <constraint firstItem="ceE-Hv-Yrv" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" id="Qlc-Me-ryd"/>
-                                    <constraint firstAttribute="trailing" secondItem="25v-Kb-weI" secondAttribute="trailing" constant="12" id="SfN-zD-pK9"/>
-                                    <constraint firstItem="25v-Kb-weI" firstAttribute="leading" secondItem="K5a-eF-4SN" secondAttribute="leading" constant="12" id="geN-h9-Vcq"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -55,7 +59,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="25v-Kb-weI" id="G0V-fv-NZX"/>
+                        <outlet property="segmentedControl" destination="m3o-LL-8SV" id="RWS-nJ-XiW"/>
                         <outlet property="tableView" destination="ceE-Hv-Yrv" id="BLt-Ip-gTC"/>
                         <outlet property="totalLabel" destination="q1Z-va-8ai" id="kHE-7o-CGa"/>
                     </connections>

@@ -21,6 +21,16 @@ class SyncCoordinator {
         return assets ?? []
     }
     
+    func getAssets(from portfolioName: String) -> [Asset] {
+        let request = Portfolio.createFetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", portfolioName)
+        var assets: [Asset]? = nil
+        if let portfolio = try? persistentContainer.viewContext.fetch(request).first {
+            assets = portfolio.assets?.allObjects as? [Asset]
+        }
+        return assets ?? []
+    }
+    
     func getCoins(symbol: String? = nil) -> [Coin] {
         let request = Coin.createFetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "cmcRank", ascending: true)]
@@ -29,6 +39,12 @@ class SyncCoordinator {
         }
         let coins = try? persistentContainer.viewContext.fetch(request)
         return coins ?? []
+    }
+    
+    func getPortfolios() -> [Portfolio] {
+        let request = Portfolio.createFetchRequest()
+        let portfolios = try? persistentContainer.viewContext.fetch(request)
+        return portfolios ?? []
     }
     
     //MARK:- Update binance
@@ -100,6 +116,32 @@ class SyncCoordinator {
         
     }
     
+    
+    // MARK: - Update portfolio
+    func update(_ assets: [AssetCellViewModel], portfolioName: String) {
+        let request = Portfolio.createFetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", portfolioName)
+        if let portfolio = try? persistentContainer.viewContext.fetch(request).first {
+            print("portfolio exists")
+        } else {
+            let portfolio = Portfolio(context: persistentContainer.viewContext)
+            portfolio.name = portfolioName
+            attachAssets(to: portfolio, assets: assets)
+        }
+        self.saveContext()
+    }
+    
+    func attachAssets(to portfolio: Portfolio, assets: [AssetCellViewModel]) {
+        for a in assets {
+            let request = Asset.createFetchRequest()
+            request.predicate = NSPredicate(format: "name == %@", a.name)
+            if let asset = try? persistentContainer.viewContext.fetch(request).first {
+                portfolio.addToAssets(asset)
+            }
+        }
+       
+       
+    }
     // MARK: - Core Data stack
 
     var persistentContainer: NSPersistentContainer = {
