@@ -58,6 +58,33 @@ struct RequestExecuter<T:Decodable> {
         
         task.resume()
     }
+    
+    func executeForData(completion: @escaping (Data?, Error?)->()) {
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(nil, NetworkError.invalidResponse)
+                return
+            }
+            
+            if httpResponse.statusCode != 200 {
+                completion(nil, NetworkError.responseError)
+            }
+            
+            if let _ = error {
+                completion(nil, NetworkError.responseError)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, NetworkError.dataError)
+                return
+            }
+            
+            completion(data, nil)
+        }
+        
+        task.resume()
+    }
 }
 
 

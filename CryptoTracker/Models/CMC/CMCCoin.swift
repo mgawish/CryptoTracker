@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct CMCCoin: Codable {
     let id: Int
     let name: String
@@ -40,10 +39,10 @@ extension CMCCoin {
 
 extension CMCCoin {
     static let sampleData = CMCCoin(id: 1,
-                                 name: "Bitcoin",
-                                 symbol: "BTC",
-                                 quote: Quote(USD: PriceBreakdown(price: 63328.262294438355,
+                                    name: "Bitcoin",
+                                    symbol: "BTC",
+                                    quote: Quote(USD: PriceBreakdown(price: 63328.262294438355,
                                                                   percent_change_24h: 5.70085299)),
-                                 slug: "bitcoin",
-                                 cmc_rank: 1)
+                                    slug: "bitcoin",
+                                    cmc_rank: 1)
 }

@@ -27,12 +27,9 @@ class ListingViewController: UIViewController {
     }
     
     func updateNavBar() {
-        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "arrow.up.arrow.down.circle"),
-            style: .plain,
-            target: self,
-            action: #selector(sortList))
-        
+        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                                    target: self,
+                                                                    action: #selector(search))
     }
     
     func fetchCoins(sort: ListingResponse.SortOption = .martketCapDesc) {
@@ -49,13 +46,11 @@ class ListingViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func sortList() {
-        let sheet = UIAlertController(title: "Sort", message: "", preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Name Ascending", style: .default, handler: sortSelected))
-        sheet.addAction(UIAlertAction(title: "Name Descending", style: .default, handler: sortSelected))
-        sheet.addAction(UIAlertAction(title: "Market Cap Ascending", style: .default, handler: sortSelected))
-        sheet.addAction(UIAlertAction(title: "Market Cap Descending", style: .default, handler: sortSelected))
-        present(sheet, animated: true, completion: nil)
+    @objc func search() {
+        let vc = CoinSearchViewController()
+        let nc = UINavigationController()
+        nc.addChild(vc)
+        present(nc, animated: true, completion: nil)
     }
     
     func sortSelected(action: UIAlertAction) {

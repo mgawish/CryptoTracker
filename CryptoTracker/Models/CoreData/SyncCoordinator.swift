@@ -92,6 +92,7 @@ class SyncCoordinator {
         } else {
             let asset = Asset(context: persistentContainer.viewContext)
             asset.configure(coin, amount: amount)
+            attachCoin(to: asset)
             print("\(asset.name) created from offline")
         }
         self.saveContext()
@@ -113,7 +114,21 @@ class SyncCoordinator {
         }
         
         self.saveContext()
+    }
+    
+    func update(_ cmcCoin: CMCCoin) {
+        let request = Coin.createFetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", cmcCoin.name)
+        if let coin = try? persistentContainer.viewContext.fetch(request).first {
+            coin.update(cmcCoin)
+            print("\(coin.name) \(coin.cmcRank) updated")
+        } else {
+            let coin = Coin(context: persistentContainer.viewContext)
+            coin.configure(cmcCoin)
+            print("\(coin.name) created")
+        }
         
+        self.saveContext()
     }
     
     

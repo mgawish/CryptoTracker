@@ -9,6 +9,7 @@ import Foundation
 
 enum CMCEndpoint {
     case listing(sort: ListingResponse.SortOption)
+    case quote(symbol: String)
 }
 
 extension CMCEndpoint: EndpointProtocol {
@@ -17,7 +18,12 @@ extension CMCEndpoint: EndpointProtocol {
     }
     
     var path: String {
-        "/v1/cryptocurrency/listings/latest"
+        switch self {
+        case .listing(_):
+            return "/v1/cryptocurrency/listings/latest"
+        case .quote(_):
+            return "/v1/cryptocurrency/quotes/latest"
+        }
     }
     
     var httpMethod: String {
@@ -30,7 +36,10 @@ extension CMCEndpoint: EndpointProtocol {
             return [
                 URLQueryItem(name: "sort", value: sort.getStrings().0),
                 URLQueryItem(name: "sort_dir", value: sort.getStrings().1)
-                //URLQueryItem(name: "limit", value: "4000")
+            ]
+        case.quote(let symbol):
+            return [
+                URLQueryItem(name: "symbol", value: symbol)
             ]
         }
     }
